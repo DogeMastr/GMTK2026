@@ -5,6 +5,9 @@ class_name Mole
 var x_pos = 0
 var y_pos = 0
 
+var target_y = 0
+var currently_digging = false
+
 func _ready() -> void:
 	EventBus.move_down.connect(move_mole_down)
 	EventBus.mole_dies.connect(death)
@@ -36,6 +39,11 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("5"):
 		move_mole_down(5)
 	pass
+	
+	if currently_digging:
+		position.y = lerp(position.y, target_y, 0.3)
+		if position.y == target_y:
+			currently_digging = false
 
 func move_mole_down(amount_to_travel: int):
 	if amount_to_travel > 0:
@@ -48,12 +56,12 @@ func move_mole_down(amount_to_travel: int):
 				amount_to_travel = i + 1
 				EventBus.mole_dies.emit()
 				break
-			
-			if not EventBus.get_tile(x_pos, y_pos + i).type == 5:
-				EventBus.get_tile(x_pos, y_pos + i).type = -1
+			tile_to_travel_to.has_mole = true
+			#if not EventBus.get_tile(x_pos, y_pos + i).type == 5:
+				#EventBus.get_tile(x_pos, y_pos + i).type = -1
 				
-			
-		position.y += EventBus.tile_width * amount_to_travel
+		target_y = position.y + EventBus.tile_width * amount_to_travel
+		currently_digging = true
 		y_pos += amount_to_travel
 		
 func death():

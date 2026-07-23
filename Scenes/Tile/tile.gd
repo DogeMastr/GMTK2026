@@ -46,15 +46,13 @@ func _process(delta: float) -> void:
 	if has_mole:
 		if type == 1: # Gold pick up
 			EventBus.score += 1
-			type = 0
 		if type == 2: # Card pick up
 			EventBus.add_card.emit(data)
 			$CardSprite.set_visible(false)
-			type = 0
 		if type == 3: #Death
 			EventBus.mole_dies.emit()
-			type = 0
-			
+		if type != 5:
+			type = -1
 		# The Lava tile is handled in game.gd in func digging_out_row()
 		
 		if type == 5: #Rock
