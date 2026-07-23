@@ -5,6 +5,9 @@ class_name Tile
 var has_mole = false
 var base_color = Color(0.779, 0.565, 0.415, 1.0)
 
+var x_pos
+var y_pos
+
 func _process(delta: float) -> void:
 	if has_mole:
 		$Sprite2D.modulate = Color(base_color.h, 0, base_color.v)

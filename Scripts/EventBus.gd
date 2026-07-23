@@ -3,3 +3,13 @@ extends Node
 var tile_width = 64
 
 signal move_down(amount_to_move: int)
+
+
+func get_tile(x, y, tile_grid):
+	# this is the most inefficient search i could think of youre welcome :3
+	var all_tiles = get_tree().get_nodes_in_group("tile")
+	for tile in all_tiles:
+		if tile.y_pos == y:
+			if tile.x_pos == x:
+				return tile
+	return null

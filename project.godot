@@ -32,6 +32,10 @@ window/stretch/aspect="expand"
 
 enabled=PackedStringArray("res://addons/debug_graph/plugin.cfg")
 
+[global_group]
+
+tile="only tiles in this group"
+
 [input]
 
 player_left={
