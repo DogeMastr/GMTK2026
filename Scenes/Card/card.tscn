@@ -1,3 +1,42 @@
 [gd_scene format=3 uid="uid://cdtamjm72l2y"]
 
+[ext_resource type="Texture2D" uid="uid://cr5us2yhhqksl" path="res://Assets/Art/Cards In Hand/Card1Hand.png" id="1_r5dc4"]
+[ext_resource type="Script" uid="uid://bxdfsx3m7qjej" path="res://Scenes/Card/card.gd" id="1_rffhp"]
+[ext_resource type="Texture2D" uid="uid://dm2ir72542pr2" path="res://Assets/Art/Cards In Hand/Card2Hand.png" id="2_rffhp"]
+[ext_resource type="Texture2D" uid="uid://cb523hwfd7mps" path="res://Assets/Art/Cards In Hand/Card3Hand.png" id="3_j6efv"]
+[ext_resource type="Texture2D" uid="uid://kbjhx01ufe4t" path="res://Assets/Art/Cards In Hand/Card4Hand.png" id="4_hebtv"]
+[ext_resource type="Texture2D" uid="uid://do7tbxsv53ep0" path="res://Assets/Art/Cards In Hand/Card5Hand.png" id="5_c26c2"]
+[ext_resource type="Texture2D" uid="uid://oh4lvuhgqsjl" path="res://Assets/Art/Cards In Hand/Card6Hand.png" id="6_h04vv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qdslu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_r5dc4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rffhp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_j6efv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hebtv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_c26c2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_h04vv")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Card" type="Node2D" unique_id=1026671033]
+script = ExtResource("1_rffhp")
+
+[node name="CardSprites" type="AnimatedSprite2D" parent="." unique_id=882698617]
+position = Vector2(-1, -44)
+sprite_frames = SubResource("SpriteFrames_qdslu")

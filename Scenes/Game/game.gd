@@ -7,7 +7,7 @@ var height = 15
 const scroll_scale = 0.01
 const min_scroll_speed = 5
 const max_scroll_speed = 200
-var ideal_headroom = EventBus.tile_width*2.0
+var ideal_headroom = EventBus.tile_width*2.5
 
 # this value increases as the game progresses, controls the scale of the random tile generations
 var difficulty = 0
@@ -30,7 +30,6 @@ func _process(delta: float) -> void:
 		generate_row()
 	pass
 	$ScoreLabel.text = "Score: " + str(EventBus.score)
-	$HandLabel.text = "Hand: " + str(EventBus.hand)
 	
 func generate_row():
 	for i in range(width):
@@ -62,17 +61,22 @@ func flow_lava(row):
 		row_tile.type = 4
 
 var weight = 0.0
-const weightDecay = 50
+const weight_decay = 50
 func run_grid_scrolling(delta):
 	# theres math involved here
 	# we want to be slowest when theres less than 2 tiles above the player
 	# max speed when theres 7 tiles above the player
-	weight = lerp(weight, $TileGrid/Mole.global_position.y/(get_viewport().size.y-ideal_headroom), delta*weightDecay)
+	#var player_distance = $TileGrid/Mole.global_position.y/(get_viewport().size.y)
+	var player_distance = remap_range($TileGrid/Mole.global_position.y, ideal_headroom, get_viewport().size.y, 0, 1)
+	weight = lerp(weight, player_distance, delta*weight_decay)
 	var scroll_speed = lerp(min_scroll_speed,max_scroll_speed,weight) * scroll_scale
 	scroll_speed = clamp(scroll_speed, min_scroll_speed*scroll_scale, max_scroll_speed*scroll_scale)
 	$TileGrid.position.y -= scroll_speed
 	DebugGraph.plot("weight", weight*100)
-	DebugGraph.plot("pos", $TileGrid/Mole.global_position.y)
+	DebugGraph.plot("pos", player_distance)
 	DebugGraph.plot("speed", scroll_speed)
 	# https://www.youtube.com/watch?v=LSNQuFEDOyQ
 	pass
+
+func remap_range(value: float, InputA: float, InputB: float, OutputA: float, OutputB: float):
+	return(value - InputA) / (InputB - InputA) * (OutputB - OutputA) + OutputA

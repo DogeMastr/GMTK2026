@@ -2,19 +2,12 @@
 
 [ext_resource type="Script" uid="uid://26brw0rdf3eh" path="res://Scenes/Game/game.gd" id="1_rdw05"]
 [ext_resource type="PackedScene" uid="uid://0b8f5ap0awl4" path="res://Scenes/Mole/mole.tscn" id="2_gwu2e"]
+[ext_resource type="Script" uid="uid://dqxu2ve1vmstv" path="res://Scenes/Card/hand.gd" id="3_xbxml"]
 
 [node name="Game" type="Control" unique_id=620336864]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_rdw05")
-
-[node name="HandLabel" type="Label" parent="." unique_id=2094176489]
-layout_mode = 0
-offset_left = 543.0
-offset_top = 451.0
-offset_right = 603.0
-offset_bottom = 474.0
-text = "Hand: 0"
 
 [node name="ScoreLabel" type="Label" parent="." unique_id=1413144953]
 layout_mode = 0
@@ -29,3 +22,7 @@ position = Vector2(86, 32)
 
 [node name="Mole" parent="TileGrid" unique_id=1621295552 instance=ExtResource("2_gwu2e")]
 z_index = 1
+
+[node name="Hand" type="Node2D" parent="." unique_id=48774570]
+position = Vector2(615, 147)
+script = ExtResource("3_xbxml")
