@@ -48,7 +48,7 @@ func _process(delta: float) -> void:
 			EventBus.score += 1
 			type = 0
 		if type == 2: # Card pick up
-			EventBus.add_card(data)
+			EventBus.add_card.emit(data)
 			$CardSprite.set_visible(false)
 			type = 0
 		if type == 3: #Death

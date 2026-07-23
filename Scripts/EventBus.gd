@@ -10,9 +10,7 @@ var score = 0
 var hand = []
 var current_row = []
 
-func add_card(data):
-	# idk how we should handle this properly but im doing this for now so the tiles can work
-	hand.append(data)
+signal add_card(data: int)
 	
 func get_tile(x, y):
 	# this is the most inefficient search i could think of youre welcome :3
