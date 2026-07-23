@@ -54,7 +54,7 @@ func digging_out_row():
 			EventBus.mole_dies.emit()
 			break
 		if not row_tile.type == 5 and not row_tile.has_mole:
-			row_tile.type = 0
+			row_tile.type = -1
 	
 
 func flow_lava(row):

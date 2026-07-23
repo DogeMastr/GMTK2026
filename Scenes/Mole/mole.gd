@@ -12,12 +12,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# PLAYER INPUTS
 	if Input.is_action_just_pressed("player_left"):
-		if x_pos != 0:
+		if x_pos != 0 and not EventBus.get_tile(x_pos - 1, y_pos).type == 5:
 			position.x -= EventBus.tile_width
 			x_pos -= 1
 
 	if Input.is_action_just_pressed("player_right"):
-		if x_pos != 4:
+		if x_pos != 4 and not EventBus.get_tile(x_pos + 1, y_pos).type == 5:
 			position.x += EventBus.tile_width
 			x_pos += 1
 	
@@ -46,6 +46,7 @@ func move_mole_down(amount_to_travel: int):
 			if tile_to_travel_to.type == 4 or tile_to_travel_to.type == 3:
 				amount_to_travel = i + 1
 				EventBus.mole_dies.emit()
+			EventBus.get_tile(x_pos, y_pos + i).type = -1
 			
 		position.y += EventBus.tile_width * amount_to_travel
 		y_pos += amount_to_travel
