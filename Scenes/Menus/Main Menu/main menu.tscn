@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bxkwvkn7uf0sh"]
+
+[node name="MainMenu" type="Control" unique_id=1451464510]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1393608915]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -15.5
+offset_right = 23.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=205796666]
+propagate_maximum_size = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Start" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1426099343]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Start"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=192617820]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Quit
+"
+icon_alignment = 1
