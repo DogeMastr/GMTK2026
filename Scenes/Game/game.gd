@@ -42,4 +42,5 @@ func run_grid_scrolling(delta):
 	DebugGraph.plot("weight", weight*100)
 	DebugGraph.plot("pos", $TileGrid/Mole.global_position.y)
 	DebugGraph.plot("speed", scroll_speed)
+	# https://www.youtube.com/watch?v=LSNQuFEDOyQ
 	pass
