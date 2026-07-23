@@ -5,6 +5,9 @@ class_name Mole
 var x_pos = 0
 var y_pos = 0
 
+func _ready() -> void:
+	EventBus.move_down.connect(move_mole_down)
+
 func _process(delta: float) -> void:
 	# PLAYER INPUTS
 	if Input.is_action_just_pressed("player_left"):
@@ -18,6 +21,10 @@ func _process(delta: float) -> void:
 			x_pos += 1
 	
 	if Input.is_action_just_pressed("player_down"):
-		position.y += EventBus.tile_width
-		y_pos += 1
+		move_mole_down(1)
 	pass
+
+func move_mole_down(amount_to_travel: int):
+	if amount_to_travel > 0:
+		position.y += EventBus.tile_width * amount_to_travel
+		y_pos += 1 * amount_to_travel
