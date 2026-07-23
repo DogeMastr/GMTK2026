@@ -13,3 +13,12 @@ func get_tile(x, y):
 			if tile.x_pos == x:
 				return tile
 	return null
+
+func get_tile_row(y):
+	# this is the most inefficient search i could think of youre welcome :3
+	var all_tiles = get_tree().get_nodes_in_group("tile")
+	var row = []
+	for tile in all_tiles:
+		if tile.y_pos == y:
+			row.append(tile)
+	return row
