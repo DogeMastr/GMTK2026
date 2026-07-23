@@ -21,6 +21,7 @@ func _ready() -> void:
 			pass
 		pass
 	pass # Replace with function body.
+	EventBus.dig_out_row.connect(digging_out_row)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -46,6 +47,19 @@ func generate_tile(x, y, difficulty):
 	# run tile randomness generation here
 	temp_tile.set_type(difficulty)
 	return temp_tile
+
+func digging_out_row():
+	for row_tile in EventBus.current_row:
+		if row_tile.type == 4:
+			flow_lava(EventBus.current_row)
+			EventBus.mole_dies.emit()
+			break
+		row_tile.type = 0
+	
+
+func flow_lava(row):
+	for row_tile in row:
+		row_tile.type = 4
 
 var weight = 0.0
 const weightDecay = 50

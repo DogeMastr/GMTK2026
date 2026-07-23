@@ -4,9 +4,11 @@ var tile_width = 64
 
 signal move_down(amount_to_move: int)
 signal mole_dies
+signal dig_out_row
 
 var score = 0
 var hand = []
+var current_row = []
 
 func add_card(data):
 	# idk how we should handle this properly but im doing this for now so the tiles can work

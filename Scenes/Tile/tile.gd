@@ -18,8 +18,6 @@ var y_pos
 var type = 0
 var data = -1
 
-var current_row = []
-
 func set_type(difficulty):
 	var r = randi_range(0, 100 - difficulty)
 	if r < 10:
@@ -56,6 +54,9 @@ func _process(delta: float) -> void:
 		if type == 3: #Death
 			EventBus.mole_dies.emit()
 			type = 0
+			
+		# The Lava tile is handled in game.gd in func digging_out_row()
+		
 		if type == 5: #Rock
 			pass
 
@@ -67,12 +68,11 @@ func _process(delta: float) -> void:
 	else:
 		$CardSprite.set_visible(false)
 	
-	
-	
 func _on_body_entered(body: Node2D) -> void:
 	if body is Mole:
 		has_mole = true
-		current_row = EventBus.get_tile_row(body.y_pos)
+		EventBus.current_row = EventBus.get_tile_row(body.y_pos)
+		EventBus.dig_out_row.emit()
 		
 func _on_body_exited(body: Node2D) -> void:
 	if body is Mole:
