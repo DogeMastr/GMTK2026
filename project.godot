@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 EventBus="*uid://dmhlhuircauku"
 DebugGraph="*uid://d1yj0qtdy68p"
-AudioManager="*uid://ceedvnbyyud3t"
+AudioManager="*uid://dkv8mm7buhafk"
 
 [display]
 
