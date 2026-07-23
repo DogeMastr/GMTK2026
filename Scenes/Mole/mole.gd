@@ -43,10 +43,15 @@ func move_mole_down(amount_to_travel: int):
 			var tile_to_travel_to = EventBus.get_tile(x_pos, y_pos + i + 1)
 			if tile_to_travel_to.type == 5:
 				amount_to_travel = i
+				break
 			if tile_to_travel_to.type == 4 or tile_to_travel_to.type == 3:
 				amount_to_travel = i + 1
 				EventBus.mole_dies.emit()
-			EventBus.get_tile(x_pos, y_pos + i).type = -1
+				break
+			
+			if not EventBus.get_tile(x_pos, y_pos + i).type == 5:
+				EventBus.get_tile(x_pos, y_pos + i).type = -1
+				
 			
 		position.y += EventBus.tile_width * amount_to_travel
 		y_pos += amount_to_travel
