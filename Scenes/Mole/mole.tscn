@@ -1,3 +1,17 @@
 [gd_scene format=3 uid="uid://0b8f5ap0awl4"]
 
-[node name="Mole" type="Node2D" unique_id=1485429011]
+[ext_resource type="Script" uid="uid://yfqomrg5omlm" path="res://Scenes/Mole/mole.gd" id="1_ow5gg"]
+[ext_resource type="Texture2D" uid="uid://dhcwybhoxgwhe" path="res://icon.svg" id="2_k3iki"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdslu"]
+size = Vector2(32, 32)
+
+[node name="Mole" type="CharacterBody2D" unique_id=1621295552]
+script = ExtResource("1_ow5gg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1899600202]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_k3iki")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1715951690]
+shape = SubResource("RectangleShape2D_qdslu")
