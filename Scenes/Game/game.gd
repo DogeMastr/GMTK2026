@@ -42,7 +42,7 @@ func generate_tile(x, y, difficulty):
 	temp_tile.position.y = y*EventBus.tile_width
 	temp_tile.y_pos = y
 	# run tile randomness generation here
-	
+	temp_tile.set_type(difficulty)
 	return temp_tile
 
 var weight = 0.0
