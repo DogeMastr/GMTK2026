@@ -8,6 +8,22 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_rdw05")
 
+[node name="HandLabel" type="Label" parent="." unique_id=2094176489]
+layout_mode = 0
+offset_left = 543.0
+offset_top = 451.0
+offset_right = 603.0
+offset_bottom = 474.0
+text = "Hand: 0"
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1413144953]
+layout_mode = 0
+offset_left = 534.0
+offset_top = 378.0
+offset_right = 595.0
+offset_bottom = 401.0
+text = "Score: 0"
+
 [node name="TileGrid" type="Node2D" parent="." unique_id=1659394162]
 position = Vector2(86, 32)
 

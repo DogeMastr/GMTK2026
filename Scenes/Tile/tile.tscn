@@ -1,10 +1,42 @@
 [gd_scene format=3 uid="uid://b8sm7ip4tvxf4"]
 
 [ext_resource type="Script" uid="uid://bo2pl1aybkpa6" path="res://Scenes/Tile/tile.gd" id="1_b86n5"]
+[ext_resource type="Texture2D" uid="uid://babmdxmeekehw" path="res://Assets/Art/Card Pick Ups/CardTilePlus1.png" id="2_dh3lx"]
 [ext_resource type="Texture2D" uid="uid://d1db60kf6mcfj" path="res://Assets/Art/temp_tile.png" id="2_wnr2v"]
+[ext_resource type="Texture2D" uid="uid://bxx740qur0vgu" path="res://Assets/Art/Card Pick Ups/CardTilePlus2.png" id="3_cos8v"]
+[ext_resource type="Texture2D" uid="uid://dx8pmcf6qt4i5" path="res://Assets/Art/Card Pick Ups/CardTilePlus3.png" id="4_0gogo"]
+[ext_resource type="Texture2D" uid="uid://ccrb2ke43synr" path="res://Assets/Art/Card Pick Ups/CardTilePlus4.png" id="5_pq482"]
+[ext_resource type="Texture2D" uid="uid://dlqoeppayg1sb" path="res://Assets/Art/Card Pick Ups/CardTilePlus5.png" id="6_a8eru"]
+[ext_resource type="Texture2D" uid="uid://dyo52jmagbdt0" path="res://Assets/Art/Card Pick Ups/CardTilePlus6.png" id="7_gjeiu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qdslu"]
 size = Vector2(32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qdslu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dh3lx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cos8v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0gogo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pq482")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a8eru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gjeiu")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Tile" type="Area2D" unique_id=1978436475 groups=["tile"]]
 script = ExtResource("1_b86n5")
@@ -20,6 +52,11 @@ shape = SubResource("RectangleShape2D_qdslu")
 offset_right = 40.0
 offset_bottom = 23.0
 text = "0"
+
+[node name="CardSprite" type="AnimatedSprite2D" parent="." unique_id=595923130]
+visible = false
+position = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_qdslu")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

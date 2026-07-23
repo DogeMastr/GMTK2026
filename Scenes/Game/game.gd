@@ -28,6 +28,8 @@ func _process(delta: float) -> void:
 	if $TileGrid/Mole.y_pos + 15 > height:
 		generate_row()
 	pass
+	$ScoreLabel.text = "Score: " + str(EventBus.score)
+	$HandLabel.text = "Hand: " + str(EventBus.hand)
 	
 func generate_row():
 	for i in range(width):

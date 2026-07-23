@@ -16,13 +16,16 @@ var y_pos
 # 4 Lava: you die but different		2%
 # 5 Rock / stick: you stop			5%
 var type = 0
+var data = -1
 
 func set_type(difficulty):
 	var r = randi_range(0, 100 - difficulty)
 	if r < 10:
 		type = 1
+		data = randi_range(1,5) # gold amount
 	elif r < 15:
 		type = 2
+		data = randi_range(1,6) # card type
 	elif r < 20:
 		type = 3
 	elif r < 22:
@@ -39,7 +42,21 @@ func _process(delta: float) -> void:
 	else:
 		$Sprite2D.modulate = base_color
 	$Label.text = str(type)
+	
+	if has_mole:
+		if type == 1: # Gold pick up
+			EventBus.score += 1
+			type = 0
+		if type == 2: # Card pick up
+			EventBus.add_card(data)
+			$CardSprite.set_visible(false)
+			type = 0
 
+	if type == 2:
+		if data > 0:
+			$CardSprite.set_frame(data-1)
+		$CardSprite.set_visible(true)
+		
 func _on_body_entered(body: Node2D) -> void:
 	if body is Mole:
 		has_mole = true
