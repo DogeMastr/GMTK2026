@@ -38,5 +38,5 @@ animations = [{
 script = ExtResource("1_rffhp")
 
 [node name="CardSprites" type="AnimatedSprite2D" parent="." unique_id=882698617]
-position = Vector2(-1, -44)
+position = Vector2(-2, -77)
 sprite_frames = SubResource("SpriteFrames_qdslu")

@@ -18,11 +18,11 @@ offset_bottom = 401.0
 text = "Score: 0"
 
 [node name="TileGrid" type="Node2D" parent="." unique_id=1659394162]
-position = Vector2(86, 32)
+position = Vector2(84, 38)
 
 [node name="Mole" parent="TileGrid" unique_id=1621295552 instance=ExtResource("2_gwu2e")]
 z_index = 1
 
 [node name="Hand" type="Node2D" parent="." unique_id=48774570]
-position = Vector2(615, 147)
+position = Vector2(617, 208)
 script = ExtResource("3_xbxml")
