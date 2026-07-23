@@ -33,7 +33,9 @@ func _process(delta: float) -> void:
 			if card.is_selected:
 				is_another_selected = true
 		is_selected = !is_another_selected
-
+	if is_selected and Input.is_action_just_released("mouse_click"):
+		EventBus.move_down.emit(value)
+		queue_free()
 
 func set_target_position(x, y):
 	target_x = x
