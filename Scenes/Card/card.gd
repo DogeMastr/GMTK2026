@@ -6,6 +6,7 @@ var value = 0
 var target_y
 var target_x
 var is_selected = false
+var has_mouse = false
 
 var sprite_offset_y = -64.0
 
@@ -24,6 +25,15 @@ func _process(delta: float) -> void:
 	else:
 		$CardSprites.position.y = lerp($CardSprites.position.y, sprite_offset_y, 0.3)
 	$Label.text = str(is_selected)
+	
+	if has_mouse and !is_selected:
+		var all_cards = get_tree().get_nodes_in_group("card")
+		var is_another_selected = false
+		for card in all_cards:
+			if card.is_selected:
+				is_another_selected = true
+		is_selected = !is_another_selected
+
 
 func set_target_position(x, y):
 	target_x = x
@@ -31,15 +41,11 @@ func set_target_position(x, y):
 
 
 func _on_mouse_entered() -> void:
-	var all_cards = get_tree().get_nodes_in_group("card")
-	var is_another_selected = false
-	for card in all_cards:
-		if card.is_selected:
-			is_another_selected = true
-	is_selected = !is_another_selected
+	has_mouse = true
 	pass # Replace with function body.
 
 
 func _on_mouse_exited() -> void:
+	has_mouse = false
 	is_selected = false
 	pass # Replace with function body.
