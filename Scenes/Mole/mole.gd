@@ -22,9 +22,18 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("player_down"):
 		move_mole_down(1)
+		
+		
+		
 	pass
 
 func move_mole_down(amount_to_travel: int):
 	if amount_to_travel > 0:
+		for i in range(amount_to_travel):
+			var tile_to_travel_to = EventBus.get_tile(x_pos, y_pos + i + 1)
+			if tile_to_travel_to.type == 5:
+				amount_to_travel = i
+			
+		print(amount_to_travel)
 		position.y += EventBus.tile_width * amount_to_travel
-		y_pos += 1 * amount_to_travel
+		y_pos += amount_to_travel
