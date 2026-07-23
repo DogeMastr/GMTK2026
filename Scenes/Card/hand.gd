@@ -22,16 +22,12 @@ func _process(delta: float) -> void:
 		# with two cards, -0.5, 0.5
 		# with three cards -1, 0, 1
 		# with four cards -1.5, -0.5, 0.5, 1.5
-		var x_pos : float = remap_range(i, 0, card_count, -max_hand_size/2, max_hand_size/2)
-		if card_count == 0:
-			x_pos = 0
-		get_child(i).position.x = x_pos * 50
-		get_child(i).rotation = deg_to_rad(x_pos * 0)
-		get_child(i).position.y = 0
+
+		var x_pos = (-float(card_count)/2) + i + 0.3
 		
-		print(x_pos)
-		pass
-	pass
+		get_child(i).rotation = deg_to_rad(x_pos * 5)
+		get_child(i).set_target_position(x_pos * 50, abs(x_pos) * 7)
+
 
 func remap_range(value: float, InputA: float, InputB: float, OutputA: float, OutputB: float):
 	return(value - InputA) / (InputB - InputA) * (OutputB - OutputA) + OutputA

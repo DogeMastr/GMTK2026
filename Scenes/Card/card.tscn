@@ -34,10 +34,26 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Card" type="Node2D" unique_id=1026671033]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rffhp"]
+size = Vector2(72, 122)
+
+[node name="Card" type="Node2D" unique_id=1546118184 groups=["card"]]
 script = ExtResource("1_rffhp")
 
 [node name="CardSprites" type="AnimatedSprite2D" parent="." unique_id=882698617]
 position = Vector2(-2.3841858e-07, -63.00002)
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_qdslu")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=109072919]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1012527170]
+position = Vector2(2, -66)
+shape = SubResource("RectangleShape2D_rffhp")
+
+[node name="Label" type="Label" parent="." unique_id=1036080333]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_mouse_exited"]
