@@ -9,13 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://dlqoeppayg1sb" path="res://Assets/Art/Card Pick Ups/CardTilePlus5.png" id="6_a8eru"]
 [ext_resource type="Texture2D" uid="uid://dyo52jmagbdt0" path="res://Assets/Art/Card Pick Ups/CardTilePlus6.png" id="7_gjeiu"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dh3lx"]
-atlas = ExtResource("3_xgf1a")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdslu"]
-size = Vector2(32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_cos8v"]
 atlas = ExtResource("3_xgf1a")
 region = Rect2(0, 0, 32, 32)
@@ -131,8 +124,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dh3lx"]
+atlas = ExtResource("3_xgf1a")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdslu"]
+size = Vector2(32, 32)
+
 [node name="Tile" type="Area2D" unique_id=1978436475 groups=["tile"]]
 script = ExtResource("1_b86n5")
+
+[node name="CardSprite" type="AnimatedSprite2D" parent="." unique_id=595923130]
+visible = false
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_qdslu")
+animation = &"cards"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=884067313]
 scale = Vector2(2, 2)
@@ -140,11 +146,6 @@ texture = SubResource("AtlasTexture_dh3lx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=785179905]
 shape = SubResource("RectangleShape2D_qdslu")
-
-[node name="CardSprite" type="AnimatedSprite2D" parent="." unique_id=595923130]
-visible = false
-sprite_frames = SubResource("SpriteFrames_qdslu")
-animation = &"cards"
 
 [node name="DirtSprite" type="AnimatedSprite2D" parent="." unique_id=955359340]
 scale = Vector2(2, 2)

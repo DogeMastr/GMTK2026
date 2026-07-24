@@ -38,6 +38,7 @@ func set_type(difficulty):
 	pass
 
 func _process(delta: float) -> void:
+	check_if_off_screen_and_die()
 #	if has_mole:
 #		$Sprite2D.modulate = Color(base_color.h, 0, base_color.v)
 #	else:
@@ -91,15 +92,15 @@ func get_dirt_data():
 	var S_data = false
 	
 	#3578 are "dug from" tiles
-	if y_pos - 1 >= 0:
+	if y_pos - 1 >= 0 and EventBus.get_tile(x_pos, y_pos-1) != null:
 		N = EventBus.get_tile(x_pos, y_pos-1).type
 		N_data = is_dug_from_tile(EventBus.get_tile(x_pos, y_pos-1).dirt_data)
-	if y_pos + 1 <= 4:
+	if y_pos + 1 <= 4 and EventBus.get_tile(x_pos, y_pos+1) != null:
 		S = EventBus.get_tile(x_pos, y_pos+1).type
 		S_data = is_dug_from_tile(EventBus.get_tile(x_pos, y_pos+1).dirt_data)
-	if x_pos - 1 >= 0:
+	if x_pos - 1 >= 0 and EventBus.get_tile(x_pos-1, y_pos) != null:
 		W = EventBus.get_tile(x_pos-1, y_pos).type
-	if x_pos + 1 <= 4:
+	if x_pos + 1 <= 4 and EventBus.get_tile(x_pos+1, y_pos) != null:
 		E = EventBus.get_tile(x_pos+1, y_pos).type
 
 	if (E == -1 or W == -1) and type == -1:
@@ -135,3 +136,7 @@ func dig_through_tile():
 		dirt_data = 3
 	if dirt_data == 4:
 		dirt_data = 7
+
+func check_if_off_screen_and_die():
+	if global_position.y < -550:
+		queue_free()
