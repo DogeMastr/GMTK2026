@@ -136,11 +136,12 @@ script = ExtResource("1_b86n5")
 
 [node name="CardSprite" type="AnimatedSprite2D" parent="." unique_id=595923130]
 visible = false
-z_index = 1
+z_index = 2
 sprite_frames = SubResource("SpriteFrames_qdslu")
 animation = &"cards"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=884067313]
+z_index = -1
 scale = Vector2(2, 2)
 texture = SubResource("AtlasTexture_dh3lx")
 
@@ -148,6 +149,7 @@ texture = SubResource("AtlasTexture_dh3lx")
 shape = SubResource("RectangleShape2D_qdslu")
 
 [node name="DirtSprite" type="AnimatedSprite2D" parent="." unique_id=955359340]
+z_index = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qdslu")
 animation = &"dirt_frames"
