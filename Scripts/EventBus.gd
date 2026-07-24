@@ -11,7 +11,9 @@ var hand = []
 var current_row = []
 
 signal add_card(data: int)
-	
+
+var difficulty = 0
+
 func get_tile(x, y):
 	# this is the most inefficient search i could think of youre welcome :3
 	var all_tiles = get_tree().get_nodes_in_group("tile")

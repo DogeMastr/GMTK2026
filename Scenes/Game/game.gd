@@ -10,14 +10,13 @@ const max_scroll_speed = 200
 var ideal_headroom = EventBus.tile_width*2.5
 
 # this value increases as the game progresses, controls the scale of the random tile generations
-var difficulty = 0
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for j in range(height):
 		for i in range(width):
-			$TileGrid.add_child(generate_tile(i, j, difficulty))
+			$TileGrid.add_child(generate_tile(i, j, EventBus.difficulty))
 			pass
 		pass
 	pass # Replace with function body.
@@ -30,10 +29,12 @@ func _process(delta: float) -> void:
 		generate_row()
 	pass
 	$ScoreLabel.text = "Score: " + str(EventBus.score)
+	$DiffLabel.text = "Difficulty: " + str(EventBus.difficulty)
+	
 	
 func generate_row():
 	for i in range(width):
-		$TileGrid.add_child(generate_tile(i, height, difficulty))
+		$TileGrid.add_child(generate_tile(i, height, EventBus.difficulty))
 	height += 1
 	pass
 

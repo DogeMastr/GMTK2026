@@ -15,19 +15,23 @@ func add_card(data):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
 	var card_count = get_children().size()
 	for i in range(card_count):
 		# 0 is the center
 		# with two cards, -0.5, 0.5
 		# with three cards -1, 0, 1
 		# with four cards -1.5, -0.5, 0.5, 1.5
-
 		var x_pos = (-float(card_count)/2) + i + 0.3
-		
 		get_child(i).rotation = deg_to_rad(x_pos * 5)
 		get_child(i).set_target_position(x_pos * 50, abs(x_pos) * 7)
 
+	if card_count == 0:
+		deal_hand()
+
+func deal_hand():
+	for i in range(6):
+		add_card(i+1)
+	EventBus.difficulty += 1
 
 func remap_range(value: float, InputA: float, InputB: float, OutputA: float, OutputB: float):
 	return(value - InputA) / (InputB - InputA) * (OutputB - OutputA) + OutputA

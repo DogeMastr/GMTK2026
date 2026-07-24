@@ -24,20 +24,20 @@ func _process(delta: float) -> void:
 			position.x += EventBus.tile_width
 			x_pos += 1
 	
-	if Input.is_action_just_pressed("player_down"):
-		move_mole_down(1)
-	
-	#No card player movement
-	if Input.is_action_just_pressed("1"):
-		move_mole_down(1)
-	if Input.is_action_just_pressed("2"):
-		move_mole_down(2)
-	if Input.is_action_just_pressed("3"):
-		move_mole_down(3)
-	if Input.is_action_just_pressed("4"):
-		move_mole_down(4)
-	if Input.is_action_just_pressed("5"):
-		move_mole_down(5)
+	#if Input.is_action_just_pressed("player_down"):
+		#move_mole_down(1)
+	#
+	##No card player movement
+	#if Input.is_action_just_pressed("1"):
+		#move_mole_down(1)
+	#if Input.is_action_just_pressed("2"):
+		#move_mole_down(2)
+	#if Input.is_action_just_pressed("3"):
+		#move_mole_down(3)
+	#if Input.is_action_just_pressed("4"):
+		#move_mole_down(4)
+	#if Input.is_action_just_pressed("5"):
+		#move_mole_down(5)
 	pass
 	
 	if currently_digging:

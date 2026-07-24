@@ -9,6 +9,13 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_rdw05")
 
+[node name="DiffLabel" type="Label" parent="." unique_id=905479938]
+layout_mode = 0
+offset_left = 536.0
+offset_top = 437.0
+offset_right = 576.0
+offset_bottom = 460.0
+
 [node name="ScoreLabel" type="Label" parent="." unique_id=1413144953]
 layout_mode = 0
 offset_left = 534.0
