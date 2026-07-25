@@ -50,6 +50,8 @@ animations = [{
 radius = 16.0
 
 [node name="Nugget" type="RigidBody2D" unique_id=1203335746]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_vgboa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1268894075]

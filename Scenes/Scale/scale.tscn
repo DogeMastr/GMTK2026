@@ -11,6 +11,8 @@ absorbent = true
 radius = 12.0
 
 [node name="Scale" type="RigidBody2D" unique_id=1981433376]
+collision_layer = 2
+collision_mask = 2
 physics_material_override = SubResource("PhysicsMaterial_ln2h6")
 center_of_mass_mode = 1
 center_of_mass = Vector2(0, 60)
@@ -32,6 +34,8 @@ node_b = NodePath("../StaticBody2D")
 bias = 0.426
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=242478863]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1249713293]
 shape = SubResource("CircleShape2D_qdslu")
