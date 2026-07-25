@@ -1,9 +1,11 @@
 extends Control
 
 @onready var game_scene = preload("res://Scenes/Game/Game.tscn")
+@onready var main_menu_music = preload("res://Assets/Sound/Music/digdown.wav")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	AudioManager.fade_music_in(main_menu_music)
 	pass # Replace with function body.
 
 
