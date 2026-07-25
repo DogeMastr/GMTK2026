@@ -165,6 +165,8 @@ func get_dirt_data():
 					return 1
 				elif has_been_dug_into:
 					return 2
+				elif emptys == [true, false, false]:
+					return 3
 				elif not emptys == [true, true, true]:
 					return get_dirt_data_emptys(emptys, E_tile, W_tile)
 				else:
@@ -183,6 +185,8 @@ func get_dirt_data():
 				return 3
 			[false, false, true]:
 				return 4
+			[true, false, false]:
+				return 3
 			_:
 				return 0
 				
@@ -190,9 +194,11 @@ func get_dirt_data():
 		if directions == [true, false, true] :
 			if N_tile.type == 5:
 				return 4
-			if has_been_dug_into and type == 4:
+			if has_been_dug_into and (type == 4 or type == 3):
 				return 2
 			if (type == 5 or type == 3) and (digged_horizontally(E_tile) or digged_horizontally(W_tile)):
+				return 0
+			if type == 3 and not (digged_horizontally(E_tile) or digged_horizontally(W_tile)):
 				return 0
 			else:
 				return 4
