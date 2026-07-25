@@ -74,7 +74,8 @@ func _process(delta: float) -> void:
 			EventBus.mole_dies.emit()
 			$EntitySprite.set_visible(false)
 		if type == 4:
-			EventBus.mole_dies.emit()
+			if EventBus.mole_alive_status:
+				EventBus.mole_dies.emit()
 
 		if type == 5: #Rock
 			pass

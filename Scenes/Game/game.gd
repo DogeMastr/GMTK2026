@@ -58,7 +58,9 @@ func digging_out_row():
 	for row_tile in EventBus.current_row:
 		if row_tile.type == 4:
 			flow_lava(EventBus.current_row)
-			EventBus.mole_dies.emit()
+			if EventBus.mole_alive_status:
+				print("death")
+				EventBus.mole_dies.emit()
 			break
 		if not row_tile.type == 5 or not row_tile.type == 3:
 			row_tile.type = -1
