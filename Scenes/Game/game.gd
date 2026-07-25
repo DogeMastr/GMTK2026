@@ -46,6 +46,8 @@ func generate_tile(x, y, difficulty):
 	temp_tile.y_pos = y
 	# run tile randomness generation here
 	temp_tile.set_type(difficulty)
+	if temp_tile.y_pos <= 3:
+		temp_tile.type = 0
 	return temp_tile
 
 func digging_out_row():
@@ -62,8 +64,9 @@ func digging_out_row():
 func flow_lava(row):
 	for row_tile in row:
 		row_tile.type = 4
-		row_tile.get_node("DirtSprite").set_visible(false)
-		row_tile.get_node("EntitySprite").set_visible(false)
+		row_tile.has_been_dug_into = true
+		#row_tile.get_node("DirtSprite").set_visible(false)
+		#row_tile.get_node("EntitySprite").set_visible(false)
 
 var weight = 0.0
 const weight_decay = 50

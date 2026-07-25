@@ -80,9 +80,12 @@ func _process(delta: float) -> void:
 		$EntitySprite.set_frame(1)
 	elif type == 4:
 		$Background.set_frame(1)
-		$EntitySprite.set_visible(true)
-		$EntitySprite.set_animation("hazard")
-		$EntitySprite.set_frame(0)
+		if not has_been_dug_into:
+			$EntitySprite.set_visible(true)
+			$EntitySprite.set_animation("hazard")
+			$EntitySprite.set_frame(0)
+		else:
+			$EntitySprite.set_visible(false)
 	elif type == 5:
 		
 		$EntitySprite.set_animation("hazard")
@@ -104,31 +107,40 @@ func _on_body_exited(body: Node2D) -> void:
 	if body is Mole:
 		has_mole = false
 	
+func is_diggable(tile):
+	if tile == null:
+		return false
+	if tile.type == -1 or tile.type == 4 or tile.type == 5:
+		return true
+	return false
+
 func is_empty(tile):
 	if tile == null:
 		return false
 	if tile.type == -1:
 		return true
 	return false
+
+func digged_horizontally(tile):
+	if not tile == null:
+		if (tile.dirt_data == 1 or tile.dirt_data == 2 or tile.dirt_data == 4 or tile.dirt_data == 5):
+			return true
+		else:
+			return false
+	else:
+		return false
 	
 func get_dirt_data():
-	var N = 0
-	var S = 0
-	var E = 0
-	var W = 0
-	
-	var N_data = false
-	var S_data = false
-	
 	var N_tile = EventBus.get_tile(x_pos, y_pos-1)
 	var S_tile = EventBus.get_tile(x_pos, y_pos+1)
 	var E_tile = EventBus.get_tile(x_pos-1, y_pos)
 	var W_tile = EventBus.get_tile(x_pos+1, y_pos)
 
 	
-	var directions = [is_empty(N_tile), is_empty(S_tile), (is_empty(E_tile) or is_empty(W_tile))]
+	var directions = [is_diggable(N_tile), is_diggable(S_tile), (is_diggable(E_tile) or is_diggable(W_tile))]
+	var emptys = [is_empty(N_tile), is_empty(S_tile), (is_empty(E_tile) or is_empty(W_tile))]
 	
-	if type == -1:
+	if type == -1 :
 		match directions:
 			[true, true, true]:
 				if has_been_dug_from and has_been_dug_into:
@@ -137,6 +149,8 @@ func get_dirt_data():
 					return 1
 				elif has_been_dug_into:
 					return 2
+				elif not emptys == [true, true, true]:
+					return get_dirt_data_emptys(emptys, E_tile, W_tile)
 				else:
 					return 4
 			[true, false, true]:
@@ -155,36 +169,52 @@ func get_dirt_data():
 				return 4
 			_:
 				return 0
+				
+	elif (type == 4) or (type == 5):
+		if directions == [true, false, true]:
+			if has_been_dug_into:
+				return 2
+			else:
+				return 0
+		elif (digged_horizontally(E_tile) or digged_horizontally(W_tile)):
+			return 4
+		else:
+			return 0
+
 	else:
 		return 0
-	
-	##if (E == -1 or W == -1) and (type == -1 or type == 5):
-		#if N_data and S_data:
-	##if EW are empty and N is true and S is true, 5
-			#return 5
-		#elif N_data and not S_data:
-	##if EW are empty and N is true and S is false, 2
-			#return 2
-		#elif not N_data and S_data:
-	##if EW are empty and N is not true and S is true, 3
-			#return 3
-		#else:
-	##if EW are empty and N is not true and S is not true, 4
-			#return 4
-	#else:
-		#if (N == -1 or S == -1) and type == -1:
-	##if NS are empty and EW are not empty, 3
-			#return 3
-		#else:
-	##if NSEW are not empty, 0
-			#return 0
-
-func dig_through_tile():
-	if dirt_data == 2:
-		dirt_data = 5
-	if dirt_data == 4:
-		dirt_data = 1
+			
 
 func check_if_off_screen_and_die():
 	if global_position.y < -550:
 		EventBus.mole_dies.emit()
+
+func get_dirt_data_emptys(directions, E_tile, W_tile):
+	match directions:
+			[true, true, true]:
+				if has_been_dug_from and has_been_dug_into:
+					return 5
+				elif has_been_dug_from:
+					return 1
+				elif has_been_dug_into:
+					return 2
+				elif not (E_tile == null or W_tile == null):
+					return 3
+				else:
+					return 4
+			[true, false, true]:
+				if has_been_dug_into:
+					return 2
+				else:
+					return 4
+			[false, true, true]:
+				if has_been_dug_from: 
+					return 1
+				else:
+					return 4
+			[true, true, false]:
+				return 3
+			[false, false, true]:
+				return 4
+			_:
+				return 0
