@@ -13,6 +13,8 @@ var mole_alive_status = true
 
 signal add_card(data: int)
 
+signal spawn_nugget(x,y,data)
+
 var difficulty = 0
 
 func get_tile(x, y):

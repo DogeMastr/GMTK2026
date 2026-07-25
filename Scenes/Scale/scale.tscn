@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c0tq8sht3fmt"]
 
+[ext_resource type="Script" uid="uid://dntxbpgcceuoq" path="res://Scenes/Scale/scale.gd" id="1_1foro"]
 [ext_resource type="Texture2D" uid="uid://shi63sm1kjrf" path="res://Assets/Art/scalesBigger.png" id="1_ff2h1"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ln2h6"]
@@ -13,6 +14,7 @@ radius = 12.0
 physics_material_override = SubResource("PhysicsMaterial_ln2h6")
 center_of_mass_mode = 1
 center_of_mass = Vector2(0, 60)
+script = ExtResource("1_1foro")
 
 [node name="Scales" type="Sprite2D" parent="." unique_id=680578084]
 position = Vector2(0, 114)
@@ -27,6 +29,7 @@ polygon = PackedVector2Array(-32, -1, -25, 6, -18, 11, -10, 14, 0, 15, 9, 14, 18
 [node name="PinJoint2D" type="PinJoint2D" parent="." unique_id=1600652457]
 node_a = NodePath("..")
 node_b = NodePath("../StaticBody2D")
+bias = 0.426
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=242478863]
 

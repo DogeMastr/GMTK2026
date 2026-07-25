@@ -64,6 +64,7 @@ func _process(delta: float) -> void:
 	if has_mole:
 		if type == 1: # Gold pick up
 			EventBus.score += entity_data
+			EventBus.spawn_nugget.emit(global_position.x, global_position.y, entity_data)
 			type = -1
 		if type == 2: # Card pick up
 			EventBus.add_card.emit(entity_data)
