@@ -5,9 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://cxdnd0igcoxxs" path="res://Assets/Sound/soundeffects/coin.wav" id="2_qp1u0"]
 [ext_resource type="Texture2D" uid="uid://bxx740qur0vgu" path="res://Assets/Art/Card Pick Ups/CardTilePlus2.png" id="3_cos8v"]
 [ext_resource type="Texture2D" uid="uid://b4r1buc26qhtb" path="res://Assets/Art/tilesheet.png" id="3_xgf1a"]
-[ext_resource type="AudioStream" uid="uid://drivgc3y1hxjo" path="res://Assets/Sound/soundeffects/coinempty.wav" id="3_ym4ad"]
 [ext_resource type="Texture2D" uid="uid://dx8pmcf6qt4i5" path="res://Assets/Art/Card Pick Ups/CardTilePlus3.png" id="4_0gogo"]
-[ext_resource type="AudioStream" uid="uid://ogqs4pxmy2m1" path="res://Assets/Sound/soundeffects/coinfull.wav" id="4_1p1cw"]
 [ext_resource type="AudioStream" uid="uid://shysxl1lrwqu" path="res://Assets/Sound/soundeffects/grub3.wav" id="5_5nytv"]
 [ext_resource type="Texture2D" uid="uid://ccrb2ke43synr" path="res://Assets/Art/Card Pick Ups/CardTilePlus4.png" id="5_pq482"]
 [ext_resource type="Texture2D" uid="uid://dlqoeppayg1sb" path="res://Assets/Art/Card Pick Ups/CardTilePlus5.png" id="6_a8eru"]
@@ -17,6 +15,30 @@
 [ext_resource type="AudioStream" uid="uid://bkgphwvx00wrh" path="res://Assets/Sound/soundeffects/cardget.wav" id="8_3duy8"]
 [ext_resource type="Texture2D" uid="uid://q6bf02lox75x" path="res://Assets/Art/sticks_and_rocks.png" id="9_cos8v"]
 [ext_resource type="AudioStream" uid="uid://drvohmlc75dtp" path="res://Assets/Sound/soundeffects/lavadeath.wav" id="9_qovhq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w44br"]
+atlas = ExtResource("3_xgf1a")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="Curve" id="Curve_1eil1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6617101, 0.49000007), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_nm3b7"]
+curve = SubResource("Curve_1eil1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qdslu"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(0.765, 32, 1)
+direction = Vector3(3.565, -9.705, 0)
+spread = 15.0
+initial_velocity_min = 50.0
+initial_velocity_max = 167.3
+gravity = Vector3(0, 98, 0)
+scale_min = 0.099999994
+scale_max = 0.29999998
+scale_curve = SubResource("CurveTexture_nm3b7")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cos8v"]
 atlas = ExtResource("3_xgf1a")
@@ -220,13 +242,33 @@ size = Vector2(32, 32)
 [node name="Tile" type="Area2D" unique_id=1978436475 groups=["tile"]]
 script = ExtResource("1_b86n5")
 coin_get = ExtResource("2_qp1u0")
-coin_empty = ExtResource("3_ym4ad")
-coinfull = ExtResource("4_1p1cw")
 grub_1 = ExtResource("5_5nytv")
 grub_2 = ExtResource("6_kxku4")
 grub_3 = ExtResource("7_i021m")
 card_get = ExtResource("8_3duy8")
 lava = ExtResource("9_qovhq")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="." unique_id=2129121966]
+z_index = 5
+position = Vector2(15, 0)
+emitting = false
+amount = 16
+texture = SubResource("AtlasTexture_w44br")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_qdslu")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1057191702]
+z_index = 5
+scale = Vector2(-1, 1)
+emitting = false
+amount = 16
+texture = SubResource("AtlasTexture_w44br")
+lifetime = 0.5
+one_shot = true
+speed_scale = 11.73
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_qdslu")
 
 [node name="EntitySprite" type="AnimatedSprite2D" parent="." unique_id=595923130]
 z_index = 2

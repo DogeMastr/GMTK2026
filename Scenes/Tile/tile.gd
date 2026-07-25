@@ -22,6 +22,8 @@ var has_been_dug_from = false
 var has_been_dug_into = false
 var is_lava = false
 
+var sent_particles = false
+
 @export_group("Sound Effects")
 @export var coin_get: AudioStream
 @export var grub_1: AudioStream
@@ -118,6 +120,10 @@ func _process(delta: float) -> void:
 	
 	dirt_data = get_dirt_data()
 	$DirtSprite.set_frame(dirt_data)
+	
+	if type == -1 and sent_particles == false:
+		$GPUParticles2D.set_emitting(true)
+		$GPUParticles2D2.set_emitting(true)
 	
 func _on_body_entered(body: Node2D) -> void:
 	if body is Mole:
