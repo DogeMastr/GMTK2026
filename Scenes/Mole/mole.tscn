@@ -11,6 +11,7 @@ region = Rect2(0, 0, 32, 32)
 size = Vector2(32, 32)
 
 [node name="Mole" type="CharacterBody2D" unique_id=1621295552]
+z_index = 2
 script = ExtResource("1_ow5gg")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1899600202]

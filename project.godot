@@ -23,8 +23,8 @@ AudioManager="*uid://dkv8mm7buhafk"
 
 [display]
 
-window/size/viewport_width=800
-window/size/viewport_height=600
+window/size/viewport_width=768
+window/size/viewport_height=576
 window/size/resizable=false
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"

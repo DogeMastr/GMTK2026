@@ -8,18 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://ccrb2ke43synr" path="res://Assets/Art/Card Pick Ups/CardTilePlus4.png" id="5_pq482"]
 [ext_resource type="Texture2D" uid="uid://dlqoeppayg1sb" path="res://Assets/Art/Card Pick Ups/CardTilePlus5.png" id="6_a8eru"]
 [ext_resource type="Texture2D" uid="uid://dyo52jmagbdt0" path="res://Assets/Art/Card Pick Ups/CardTilePlus6.png" id="7_gjeiu"]
+[ext_resource type="Texture2D" uid="uid://q6bf02lox75x" path="res://Assets/Art/sticks_and_rocks.png" id="9_cos8v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cos8v"]
 atlas = ExtResource("3_xgf1a")
 region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0gogo"]
-atlas = ExtResource("3_xgf1a")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pq482"]
-atlas = ExtResource("3_xgf1a")
-region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a8eru"]
 atlas = ExtResource("3_xgf1a")
@@ -45,17 +38,53 @@ region = Rect2(0, 64, 32, 32)
 atlas = ExtResource("3_xgf1a")
 region = Rect2(64, 64, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pq482"]
+atlas = ExtResource("3_xgf1a")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dh3lx"]
+atlas = ExtResource("3_xgf1a")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxku4"]
+atlas = ExtResource("3_xgf1a")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i021m"]
+atlas = ExtResource("3_xgf1a")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qovhq"]
+atlas = ExtResource("3_xgf1a")
+region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gogo"]
+atlas = ExtResource("3_xgf1a")
+region = Rect2(32, 96, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ym4ad"]
 atlas = ExtResource("3_xgf1a")
-region = Rect2(96, 64, 32, 32)
+region = Rect2(0, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1p1cw"]
 atlas = ExtResource("3_xgf1a")
-region = Rect2(32, 64, 32, 32)
+region = Rect2(64, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5nytv"]
-atlas = ExtResource("3_xgf1a")
-region = Rect2(0, 96, 32, 32)
+atlas = ExtResource("9_cos8v")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3duy8"]
+atlas = ExtResource("9_cos8v")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucktj"]
+atlas = ExtResource("9_cos8v")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbx27"]
+atlas = ExtResource("9_cos8v")
+region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qdslu"]
 animations = [{
@@ -87,12 +116,6 @@ animations = [{
 "texture": SubResource("AtlasTexture_cos8v")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0gogo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pq482")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_a8eru")
 }, {
 "duration": 1.0,
@@ -111,6 +134,34 @@ animations = [{
 "texture": SubResource("AtlasTexture_qp1u0")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_pq482")
+}],
+"loop": 1,
+"name": &"dirt_frames",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dh3lx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxku4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i021m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qovhq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gogo")
+}],
+"loop": 1,
+"name": &"gold",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ym4ad")
 }, {
 "duration": 1.0,
@@ -118,15 +169,42 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5nytv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3duy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucktj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbx27")
 }],
 "loop": 1,
-"name": &"dirt_frames",
+"name": &"hazard",
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dh3lx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3v27"]
 atlas = ExtResource("3_xgf1a")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oa2e2"]
+atlas = ExtResource("3_xgf1a")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f6fn4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3v27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oa2e2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qdslu"]
 size = Vector2(32, 32)
@@ -134,30 +212,32 @@ size = Vector2(32, 32)
 [node name="Tile" type="Area2D" unique_id=1978436475 groups=["tile"]]
 script = ExtResource("1_b86n5")
 
-[node name="CardSprite" type="AnimatedSprite2D" parent="." unique_id=595923130]
+[node name="EntitySprite" type="AnimatedSprite2D" parent="." unique_id=595923130]
 visible = false
 z_index = 2
 sprite_frames = SubResource("SpriteFrames_qdslu")
-animation = &"cards"
+animation = &"hazard"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=884067313]
+[node name="Background" type="AnimatedSprite2D" parent="." unique_id=871939237]
 z_index = -1
 scale = Vector2(2, 2)
-texture = SubResource("AtlasTexture_dh3lx")
+sprite_frames = SubResource("SpriteFrames_f6fn4")
+frame_progress = 0.07945124
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=785179905]
 shape = SubResource("RectangleShape2D_qdslu")
+
+[node name="Label" type="Label" parent="." unique_id=1553181567]
+z_index = 2
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0"
 
 [node name="DirtSprite" type="AnimatedSprite2D" parent="." unique_id=955359340]
 z_index = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qdslu")
-animation = &"dirt_frames"
-
-[node name="Label" type="Label" parent="." unique_id=1553181567]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "0"
+animation = &"gold"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
