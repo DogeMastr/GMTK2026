@@ -26,8 +26,8 @@ AudioManager="*uid://dkv8mm7buhafk"
 window/size/viewport_width=768
 window/size/viewport_height=576
 window/size/resizable=false
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 
 [editor_plugins]
 

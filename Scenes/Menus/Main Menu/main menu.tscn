@@ -1,5 +1,32 @@
 [gd_scene format=3 uid="uid://bxkwvkn7uf0sh"]
 
+[ext_resource type="Script" uid="uid://bp7n4ccfsadk6" path="res://Scenes/Menus/Main Menu/main_menu.gd" id="1_xqj42"]
+[ext_resource type="Theme" uid="uid://debc8wh67ylqq" path="res://Assets/empty_theme.tres" id="2_j1dbm"]
+[ext_resource type="Texture2D" uid="uid://d1okq7tuqlday" path="res://Assets/Art/Menu Buttons Idle/ButtonPlay.png" id="3_2dscg"]
+[ext_resource type="Texture2D" uid="uid://g10lljguoovk" path="res://Assets/Art/Menu Buttons Pressing/ButtonPlayPressing.png" id="4_qjtel"]
+[ext_resource type="Texture2D" uid="uid://da6ui8b5wdmmt" path="res://Assets/Art/Menu Buttons Hover/ButtonPlayHover.png" id="5_jtovg"]
+[ext_resource type="Texture2D" uid="uid://siav61r3y7j5" path="res://Assets/Art/Menu Buttons Idle/ButtonExit.png" id="6_uarwu"]
+[ext_resource type="Texture2D" uid="uid://decf1saakviih" path="res://Assets/Art/Menu Buttons Pressing/ButtonExitPressing.png" id="7_vd6dx"]
+[ext_resource type="Texture2D" uid="uid://2legf2mff3om" path="res://Assets/Art/Menu Buttons Hover/ButtonExitHover.png" id="8_kbojc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dtvc6"]
+texture = ExtResource("3_2dscg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nm3b7"]
+texture = ExtResource("4_qjtel")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hb3m6"]
+texture = ExtResource("5_jtovg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uarwu"]
+texture = ExtResource("6_uarwu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vd6dx"]
+texture = ExtResource("7_vd6dx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kbojc"]
+texture = ExtResource("8_kbojc")
+
 [node name="MainMenu" type="Control" unique_id=1451464510]
 layout_mode = 3
 anchors_preset = 15
@@ -7,37 +34,50 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_xqj42")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1393608915]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=34559294]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -23.0
-offset_top = -15.5
-offset_right = 23.0
-offset_bottom = 22.5
+offset_left = -119.0
+offset_top = -42.0
+offset_right = 9.0
+offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
-offset_transform_enabled = true
+scale = Vector2(2, 2)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=205796666]
-propagate_maximum_size = false
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1324220436]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 alignment = 1
 
-[node name="Start" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1426099343]
+[node name="Play" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1548383347]
+custom_minimum_size = Vector2(128, 40)
 layout_mode = 2
-size_flags_vertical = 4
-text = "Start"
+theme = ExtResource("2_j1dbm")
+theme_override_styles/normal = SubResource("StyleBoxTexture_dtvc6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nm3b7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hb3m6")
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=192617820]
+[node name="Exit" type="Button" parent="CenterContainer/VBoxContainer" unique_id=278093207]
+custom_minimum_size = Vector2(128, 40)
 layout_mode = 2
-size_flags_vertical = 4
-text = "Quit
-"
-icon_alignment = 1
+theme = ExtResource("2_j1dbm")
+theme_override_styles/normal = SubResource("StyleBoxTexture_uarwu")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vd6dx")
+theme_override_styles/hover = SubResource("StyleBoxTexture_kbojc")
+
+[node name="LinkButton" type="LinkButton" parent="CenterContainer/VBoxContainer/Exit" unique_id=2131028494]
+layout_mode = 0
+offset_right = 128.75
+offset_bottom = 40.0
+uri = "https://one-heart-games.itch.io/"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
