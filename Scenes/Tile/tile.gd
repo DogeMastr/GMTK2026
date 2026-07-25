@@ -24,12 +24,13 @@ var is_lava = false
 
 @export_group("Sound Effects")
 @export var coin_get: AudioStream
-@export var coin_empty: AudioStream
-@export var coinfull: AudioStream
 @export var grub_1: AudioStream
 @export var grub_2: AudioStream
 @export var grub_3: AudioStream
+@export var card_get: AudioStream
 @export var lava: AudioStream
+
+@onready var grub_sfxs = [grub_1, grub_2, grub_3]
 
 func set_type(difficulty):
 	var r = randi_range(0, 100 - difficulty)
@@ -65,10 +66,15 @@ func _process(delta: float) -> void:
 		if type == 1: # Gold pick up
 			EventBus.score += entity_data
 			EventBus.spawn_nugget.emit(global_position.x, global_position.y, entity_data)
+			if not entity_data == 5:
+				AudioManager.play_audio_one_shot(coin_get, 2.0)
+			else:
+				AudioManager.play_audio_one_shot(grub_sfxs[randi_range(0, 2)], 3.0)
 			type = -1
 		if type == 2: # Card pick up
 			EventBus.add_card.emit(entity_data)
 			$EntitySprite.set_visible(false)
+			AudioManager.play_audio_one_shot(card_get, 1.0)
 			type = -1
 		if type == 3: #Death
 			EventBus.mole_dies.emit()
@@ -76,6 +82,7 @@ func _process(delta: float) -> void:
 		if type == 4:
 			if EventBus.mole_alive_status:
 				EventBus.mole_dies.emit()
+				AudioManager.play_audio_one_shot(lava, 4.0)
 
 		if type == 5: #Rock
 			pass

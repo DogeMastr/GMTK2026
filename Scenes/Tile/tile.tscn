@@ -2,13 +2,21 @@
 
 [ext_resource type="Script" uid="uid://bo2pl1aybkpa6" path="res://Scenes/Tile/tile.gd" id="1_b86n5"]
 [ext_resource type="Texture2D" uid="uid://babmdxmeekehw" path="res://Assets/Art/Card Pick Ups/CardTilePlus1.png" id="2_dh3lx"]
+[ext_resource type="AudioStream" uid="uid://cxdnd0igcoxxs" path="res://Assets/Sound/soundeffects/coin.wav" id="2_qp1u0"]
 [ext_resource type="Texture2D" uid="uid://bxx740qur0vgu" path="res://Assets/Art/Card Pick Ups/CardTilePlus2.png" id="3_cos8v"]
 [ext_resource type="Texture2D" uid="uid://b4r1buc26qhtb" path="res://Assets/Art/tilesheet.png" id="3_xgf1a"]
+[ext_resource type="AudioStream" uid="uid://drivgc3y1hxjo" path="res://Assets/Sound/soundeffects/coinempty.wav" id="3_ym4ad"]
 [ext_resource type="Texture2D" uid="uid://dx8pmcf6qt4i5" path="res://Assets/Art/Card Pick Ups/CardTilePlus3.png" id="4_0gogo"]
+[ext_resource type="AudioStream" uid="uid://ogqs4pxmy2m1" path="res://Assets/Sound/soundeffects/coinfull.wav" id="4_1p1cw"]
+[ext_resource type="AudioStream" uid="uid://shysxl1lrwqu" path="res://Assets/Sound/soundeffects/grub3.wav" id="5_5nytv"]
 [ext_resource type="Texture2D" uid="uid://ccrb2ke43synr" path="res://Assets/Art/Card Pick Ups/CardTilePlus4.png" id="5_pq482"]
 [ext_resource type="Texture2D" uid="uid://dlqoeppayg1sb" path="res://Assets/Art/Card Pick Ups/CardTilePlus5.png" id="6_a8eru"]
+[ext_resource type="AudioStream" uid="uid://bvc3ikn26iupe" path="res://Assets/Sound/soundeffects/grub4.wav" id="6_kxku4"]
 [ext_resource type="Texture2D" uid="uid://dyo52jmagbdt0" path="res://Assets/Art/Card Pick Ups/CardTilePlus6.png" id="7_gjeiu"]
+[ext_resource type="AudioStream" uid="uid://c848qgj6kyida" path="res://Assets/Sound/soundeffects/grub5.wav" id="7_i021m"]
+[ext_resource type="AudioStream" uid="uid://bkgphwvx00wrh" path="res://Assets/Sound/soundeffects/cardget.wav" id="8_3duy8"]
 [ext_resource type="Texture2D" uid="uid://q6bf02lox75x" path="res://Assets/Art/sticks_and_rocks.png" id="9_cos8v"]
+[ext_resource type="AudioStream" uid="uid://drvohmlc75dtp" path="res://Assets/Sound/soundeffects/lavadeath.wav" id="9_qovhq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cos8v"]
 atlas = ExtResource("3_xgf1a")
@@ -211,12 +219,20 @@ size = Vector2(32, 32)
 
 [node name="Tile" type="Area2D" unique_id=1978436475 groups=["tile"]]
 script = ExtResource("1_b86n5")
+coin_get = ExtResource("2_qp1u0")
+coin_empty = ExtResource("3_ym4ad")
+coinfull = ExtResource("4_1p1cw")
+grub_1 = ExtResource("5_5nytv")
+grub_2 = ExtResource("6_kxku4")
+grub_3 = ExtResource("7_i021m")
+card_get = ExtResource("8_3duy8")
+lava = ExtResource("9_qovhq")
 
 [node name="EntitySprite" type="AnimatedSprite2D" parent="." unique_id=595923130]
 z_index = 2
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qdslu")
-animation = &"hazard"
+animation = &"gold"
 
 [node name="Background" type="AnimatedSprite2D" parent="." unique_id=871939237]
 z_index = -1

@@ -1,6 +1,8 @@
 extends Control
 
 @export var tile_object := preload("../Tile/tile.tscn")
+@export var lava: AudioStream
+
 
 @onready var main_menu_music = preload("res://Assets/Sound/Music/digdown.wav")
 @onready var game_music = preload("res://Assets/Sound/Music/diggame.wav")
@@ -59,8 +61,9 @@ func digging_out_row():
 		if row_tile.type == 4:
 			flow_lava(EventBus.current_row)
 			if EventBus.mole_alive_status:
-				print("death")
 				EventBus.mole_dies.emit()
+				AudioManager.play_audio_one_shot(lava, 4.0)
+
 			break
 		if not row_tile.type == 5:
 			row_tile.type = -1
