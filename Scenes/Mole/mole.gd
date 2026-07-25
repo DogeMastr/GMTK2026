@@ -18,32 +18,25 @@ func _process(delta: float) -> void:
 		if x_pos != 0 and not EventBus.get_tile(x_pos - 1, y_pos).type == 5:
 			position.x -= EventBus.tile_width
 			x_pos -= 1
+		if $AnimatedSprite2D.flip_h == true:
+			$AnimatedSprite2D.flip_h = false
 
 	if Input.is_action_just_pressed("player_right"):
 		if x_pos != 4 and not EventBus.get_tile(x_pos + 1, y_pos).type == 5:
 			position.x += EventBus.tile_width
 			x_pos += 1
-	
-	#if Input.is_action_just_pressed("player_down"):
-		#move_mole_down(1)
-	#
-	##No card player movement
-	#if Input.is_action_just_pressed("1"):
-		#move_mole_down(1)
-	#if Input.is_action_just_pressed("2"):
-		#move_mole_down(2)
-	#if Input.is_action_just_pressed("3"):
-		#move_mole_down(3)
-	#if Input.is_action_just_pressed("4"):
-		#move_mole_down(4)
-	#if Input.is_action_just_pressed("5"):
-		#move_mole_down(5)
+		if $AnimatedSprite2D.flip_h == false:
+			$AnimatedSprite2D.flip_h = true
 	pass
 	
 	if currently_digging:
+		$AnimatedSprite2D.set_animation("dig")
 		position.y = lerp(position.y, target_y, 0.3)
-		if position.y == target_y:
+		
+		if is_equal_approx(position.y, target_y) :
+			position.y = target_y
 			currently_digging = false
+			$AnimatedSprite2D.set_animation("default")
 
 func move_mole_down(amount_to_travel: int):
 	if amount_to_travel > 0:

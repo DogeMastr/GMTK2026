@@ -44,7 +44,7 @@ func _ready() -> void:
 	$DirtSprite.set_animation("dirt_frames")
 
 func _process(delta: float) -> void:
-	check_if_off_screen_and_die()
+#	check_if_off_screen_and_die()
 #	if has_mole:
 #		$Sprite2D.modulate = Color(base_color.h, 0, base_color.v)
 #	else:
@@ -185,9 +185,9 @@ func get_dirt_data():
 		return 0
 			
 
-func check_if_off_screen_and_die():
-	if global_position.y < -550:
-		EventBus.mole_dies.emit()
+#func check_if_off_screen_and_die():
+	#if global_position.y < -550:
+		#EventBus.mole_dies.emit()
 
 func get_dirt_data_emptys(directions, E_tile, W_tile):
 	match directions:
