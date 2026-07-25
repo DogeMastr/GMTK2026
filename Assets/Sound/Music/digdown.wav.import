@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dyhr74mdvcemc"
-path="res://.godot/imported/digdown.wav-4ec0127b29ec91bc7456892a74141f21.sample"
+path="res://.godot/imported/digdown.wav-9101c9e025ad4c593a7dff513002f0b0.sample"
 
 [deps]
 
-source_file="res://Assets/Sound/Music/digdown.wav"
-dest_files=["res://.godot/imported/digdown.wav-4ec0127b29ec91bc7456892a74141f21.sample"]
+source_file="res://Assets/Sound/music/digdown.wav"
+dest_files=["res://.godot/imported/digdown.wav-9101c9e025ad4c593a7dff513002f0b0.sample"]
 
 [params]
 

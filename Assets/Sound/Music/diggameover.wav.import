@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://chs6p8jb14hop"
-path="res://.godot/imported/diggameover.wav-fdc2c1794cf75a6249d4f5c3c98cb8a1.sample"
+path="res://.godot/imported/diggameover.wav-92d58bd0dbc1a072a2a769e3b8fd59ea.sample"
 
 [deps]
 
-source_file="res://Assets/Sound/Music/diggameover.wav"
-dest_files=["res://.godot/imported/diggameover.wav-fdc2c1794cf75a6249d4f5c3c98cb8a1.sample"]
+source_file="res://Assets/Sound/music/diggameover.wav"
+dest_files=["res://.godot/imported/diggameover.wav-92d58bd0dbc1a072a2a769e3b8fd59ea.sample"]
 
 [params]
 
