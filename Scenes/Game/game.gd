@@ -29,6 +29,8 @@ func _ready() -> void:
 		pass
 	pass # Replace with function body.
 	EventBus.dig_out_row.connect(digging_out_row)
+	EventBus.mole_dies.connect(stop_music)
+	
 	AudioManager.fade_music_in(game_music)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -37,6 +39,10 @@ func _process(delta: float) -> void:
 	if $TileGrid/Mole.y_pos + 15 > height:
 		generate_row()
 	pass
+
+# Stop the music function, for when u die bruh
+func stop_music():
+	AudioManager.fade_music_out()
 	
 func generate_row():
 	for i in range(width):
