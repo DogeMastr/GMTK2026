@@ -14,14 +14,14 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	# PLAYER INPUTS
-	if Input.is_action_just_pressed("player_left"):
+	if Input.is_action_just_pressed("player_left") and EventBus.mole_alive_status:
 		if x_pos != 0 and not EventBus.get_tile(x_pos - 1, y_pos).type == 5:
 			position.x -= EventBus.tile_width
 			x_pos -= 1
 		if $AnimatedSprite2D.flip_h == true:
 			$AnimatedSprite2D.flip_h = false
 
-	if Input.is_action_just_pressed("player_right"):
+	if Input.is_action_just_pressed("player_right") and EventBus.mole_alive_status:
 		if x_pos != 4 and not EventBus.get_tile(x_pos + 1, y_pos).type == 5:
 			position.x += EventBus.tile_width
 			x_pos += 1
@@ -33,13 +33,14 @@ func _process(delta: float) -> void:
 		$AnimatedSprite2D.set_animation("dig")
 		position.y = lerp(position.y, target_y, 0.3)
 		
-		if is_equal_approx(position.y, target_y) :
+		if is_equal_approx(position.y, target_y):
 			position.y = target_y
 			currently_digging = false
-			$AnimatedSprite2D.set_animation("default")
+			if EventBus.mole_alive_status:
+				$AnimatedSprite2D.set_animation("default")
 
 func move_mole_down(amount_to_travel: int):
-	if amount_to_travel > 0:
+	if amount_to_travel > 0 and EventBus.mole_alive_status:
 		
 		for i in range(amount_to_travel):
 			var tile_to_travel_to = EventBus.get_tile(x_pos, y_pos + i + 1)
@@ -48,9 +49,7 @@ func move_mole_down(amount_to_travel: int):
 				break
 			if tile_to_travel_to.type == 4 or tile_to_travel_to.type == 3:
 				amount_to_travel = i + 1
-				EventBus.mole_dies.emit()
 				break
-			print(tile_to_travel_to.type)
 			if tile_to_travel_to.type == 0:
 				tile_to_travel_to.type = -1
 			EventBus.get_tile(x_pos,y_pos).has_been_dug_from = true
@@ -64,5 +63,11 @@ func move_mole_down(amount_to_travel: int):
 		EventBus.get_tile(x_pos,y_pos).has_been_dug_into = true
 		
 func death():
-	print("death")
-	$CollisionShape2D.disabled = true
+	
+	EventBus.mole_alive_status = false
+	
+	$AnimatedSprite2D.set_animation("death")
+	await $AnimatedSprite2D.animation_changed
+	print($AnimatedSprite2D.animation)
+	print(currently_digging)
+	$AnimatedSprite2D.set_animation("death")

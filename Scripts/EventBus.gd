@@ -9,6 +9,7 @@ signal dig_out_row
 var score = 0
 var hand = []
 var current_row = []
+var mole_alive_status = true
 
 signal add_card(data: int)
 

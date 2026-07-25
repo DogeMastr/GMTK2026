@@ -69,7 +69,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_08duv")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"death",
 "speed": 8.0
 }, {
@@ -117,7 +117,6 @@ position = Vector2(0, -8)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_f6fn4")
 autoplay = "default"
-frame_progress = 0.60603565
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1715951690]
 shape = SubResource("RectangleShape2D_qdslu")

@@ -20,6 +20,7 @@ var entity_data = -1
 var dirt_data = 0
 var has_been_dug_from = false
 var has_been_dug_into = false
+var is_lava = false
 
 func set_type(difficulty):
 	var r = randi_range(0, 100 - difficulty)
@@ -62,8 +63,9 @@ func _process(delta: float) -> void:
 		if type == 3: #Death
 			EventBus.mole_dies.emit()
 			$EntitySprite.set_visible(false)
-			type = -1
-		
+		if type == 4:
+			EventBus.mole_dies.emit()
+
 		if type == 5: #Rock
 			pass
 
@@ -83,7 +85,7 @@ func _process(delta: float) -> void:
 		$EntitySprite.set_frame(1)
 	elif type == 4:
 		$Background.set_frame(1)
-		if not has_been_dug_into:
+		if not is_lava:
 			$EntitySprite.set_visible(true)
 			$EntitySprite.set_animation("hazard")
 			$EntitySprite.set_frame(0)
@@ -102,7 +104,7 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body is Mole:
 		has_mole = true
-		dirt_data = 4
+		
 		EventBus.current_row = EventBus.get_tile_row(body.y_pos)
 		EventBus.dig_out_row.emit()
 		
@@ -177,11 +179,13 @@ func get_dirt_data():
 		if directions == [true, false, true] :
 			if N_tile.type == 5:
 				return 4
-			if has_been_dug_into:
+			if has_been_dug_into and type == 4:
 				return 2
-			else:
+			if type == 5 and (digged_horizontally(E_tile) or digged_horizontally(W_tile)):
 				return 0
-		elif (digged_horizontally(E_tile) or digged_horizontally(W_tile)):
+			else:
+				return 4
+		elif is_lava:
 			return 4
 		else:
 			return 0

@@ -1,6 +1,11 @@
 extends Control
 
 @export var tile_object := preload("../Tile/tile.tscn")
+
+@onready var main_menu_music = preload("res://Assets/Sound/Music/digdown.wav")
+@onready var game_music = preload("res://Assets/Sound/Music/diggame.wav")
+@onready var game_over_music = preload("res://Assets/Sound/Music/diggameover.wav")
+
 const width = 5
 var height = 15
 
@@ -14,6 +19,7 @@ var ideal_headroom = EventBus.tile_width*2.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	for j in range(height):
 		for i in range(width):
 			$TileGrid.add_child(generate_tile(i, j, EventBus.difficulty))
@@ -21,6 +27,7 @@ func _ready() -> void:
 		pass
 	pass # Replace with function body.
 	EventBus.dig_out_row.connect(digging_out_row)
+	AudioManager.fade_music_in(game_music)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -64,7 +71,7 @@ func digging_out_row():
 func flow_lava(row):
 	for row_tile in row:
 		row_tile.type = 4
-		row_tile.has_been_dug_into = true
+		row_tile.is_lava = true
 		#row_tile.get_node("DirtSprite").set_visible(false)
 		#row_tile.get_node("EntitySprite").set_visible(false)
 
