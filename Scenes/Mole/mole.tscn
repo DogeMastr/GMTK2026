@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://yfqomrg5omlm" path="res://Scenes/Mole/mole.gd" id="1_ow5gg"]
 [ext_resource type="Texture2D" uid="uid://c6txnlv4dddpf" path="res://Assets/Art/moleNew.png" id="2_ow5gg"]
+[ext_resource type="AudioStream" uid="uid://co3ork31kr5fr" path="res://Assets/Sound/soundeffects/deathmole.wav" id="2_qfxt8"]
+[ext_resource type="AudioStream" uid="uid://cwhh32s1didd1" path="res://Assets/Sound/soundeffects/digging.wav" id="3_ba64u"]
+[ext_resource type="AudioStream" uid="uid://cm0f8wj8pk7fx" path="res://Assets/Sound/soundeffects/rock.wav" id="4_08duv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k3iki"]
 atlas = ExtResource("2_ow5gg")
@@ -111,6 +114,9 @@ size = Vector2(32, 32)
 [node name="Mole" type="CharacterBody2D" unique_id=1621295552]
 z_index = 3
 script = ExtResource("1_ow5gg")
+death_mole_sfx = ExtResource("2_qfxt8")
+digging_sfx = ExtResource("3_ba64u")
+rock_sfx = ExtResource("4_08duv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=228198166]
 position = Vector2(0, -8)

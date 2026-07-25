@@ -22,6 +22,15 @@ var has_been_dug_from = false
 var has_been_dug_into = false
 var is_lava = false
 
+@export_group("Sound Effects")
+@export var coin_get: AudioStream
+@export var coin_empty: AudioStream
+@export var coinfull: AudioStream
+@export var grub_1: AudioStream
+@export var grub_2: AudioStream
+@export var grub_3: AudioStream
+@export var lava: AudioStream
+
 func set_type(difficulty):
 	var r = randi_range(0, 100 - difficulty)
 	if r < 10:

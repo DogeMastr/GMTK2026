@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dw4h5ng74q8aw"]
+
+[ext_resource type="Script" uid="uid://do787xvlhvs7d" path="res://Scenes/Globals/AudioManager/Audio_Oneshot/audio_one_shot.gd" id="1_eumsb"]
+
+[node name="AudioOneShot" type="AudioStreamPlayer" unique_id=1578115412]
+script = ExtResource("1_eumsb")
+metadata/_custom_type_script = "uid://do787xvlhvs7d"

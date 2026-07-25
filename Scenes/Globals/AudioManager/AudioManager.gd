@@ -8,6 +8,9 @@ var current_music_player : AudioStreamPlayer # the current player
 
 @onready var audio_stream_01 : AudioStreamPlayer = $AudioStreamPlayer1
 @onready var audio_stream_02 : AudioStreamPlayer = $AudioStreamPlayer2
+@onready var one_shots: Node = $OneShots
+
+@export var audio_one_shot_scene: PackedScene
 
 func _ready() -> void:
 	current_music_player = audio_stream_01
@@ -31,3 +34,13 @@ func crossfade_music_to(track: AudioStream) -> void:
 	current_music_player = audio_stream_01 if current_music_player == audio_stream_02 else audio_stream_02
 	
 	fade_music_in(track) # Fade in second player
+
+
+func play_audio_one_shot(audio_stream: AudioStream, volume_db: float = 0.0, from_position: float = 0.0) -> AudioOneShot:
+	var audio_one_shot: AudioOneShot = audio_one_shot_scene.instantiate()
+	audio_one_shot.stream = audio_stream
+	audio_one_shot.volume_db = volume_db
+	audio_one_shot.from_position = from_position
+	
+	one_shots.add_child(audio_one_shot)
+	return audio_one_shot

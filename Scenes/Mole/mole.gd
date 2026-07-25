@@ -8,6 +8,12 @@ var y_pos = 0
 var target_y = 0
 var currently_digging = false
 
+# Sound Effect
+@export_group("Sound effects")
+@export var death_mole_sfx: AudioStream
+@export var digging_sfx: AudioStream
+@export var rock_sfx: AudioStream
+
 func _ready() -> void:
 	EventBus.move_down.connect(move_mole_down)
 	EventBus.mole_dies.connect(death)
@@ -20,6 +26,8 @@ func _process(delta: float) -> void:
 			x_pos -= 1
 		if $AnimatedSprite2D.flip_h == true:
 			$AnimatedSprite2D.flip_h = false
+		AudioManager.play_audio_one_shot(digging_sfx, 5.0)
+
 
 	if Input.is_action_just_pressed("player_right") and EventBus.mole_alive_status:
 		if x_pos != 4 and not EventBus.get_tile(x_pos + 1, y_pos).type == 5:
@@ -27,10 +35,13 @@ func _process(delta: float) -> void:
 			x_pos += 1
 		if $AnimatedSprite2D.flip_h == false:
 			$AnimatedSprite2D.flip_h = true
+		AudioManager.play_audio_one_shot(digging_sfx, 5.0)
+
 	pass
 	
 	if currently_digging:
-		$AnimatedSprite2D.set_animation("dig")
+		if not EventBus.mole_alive_status:
+			$AnimatedSprite2D.play("dig")
 		position.y = lerp(position.y, target_y, 0.3)
 		
 		if is_equal_approx(position.y, target_y):
@@ -46,28 +57,27 @@ func move_mole_down(amount_to_travel: int):
 			var tile_to_travel_to = EventBus.get_tile(x_pos, y_pos + i + 1)
 			if tile_to_travel_to.type == 5:
 				amount_to_travel = i
+				AudioManager.play_audio_one_shot(rock_sfx, 2.0)
+
 				break
 			if tile_to_travel_to.type == 4 or tile_to_travel_to.type == 3:
 				amount_to_travel = i + 1
+				EventBus.mole_dies.emit()
+				
 				break
 			if tile_to_travel_to.type == 0:
 				tile_to_travel_to.type = -1
 			EventBus.get_tile(x_pos,y_pos).has_been_dug_from = true
 			tile_to_travel_to.has_mole = true
-			#if not EventBus.get_tile(x_pos, y_pos + i).type == 5:
-				#EventBus.get_tile(x_pos, y_pos + i).type = -1
-				
+			
 		target_y = position.y + EventBus.tile_width * amount_to_travel
 		currently_digging = true
 		y_pos += amount_to_travel
 		EventBus.get_tile(x_pos,y_pos).has_been_dug_into = true
+		AudioManager.play_audio_one_shot(digging_sfx)
 		
 func death():
-	
 	EventBus.mole_alive_status = false
-	
-	$AnimatedSprite2D.set_animation("death")
-	await $AnimatedSprite2D.animation_changed
-	print($AnimatedSprite2D.animation)
-	print(currently_digging)
+	await $AnimatedSprite2D.animation_looped
+	AudioManager.play_audio_one_shot(death_mole_sfx, 1.0)
 	$AnimatedSprite2D.set_animation("death")

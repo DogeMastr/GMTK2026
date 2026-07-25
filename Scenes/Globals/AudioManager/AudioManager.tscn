@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dkv8mm7buhafk"]
+
+[ext_resource type="Script" uid="uid://ceedvnbyyud3t" path="res://Scenes/Globals/AudioManager/AudioManager.gd" id="1_ef46y"]
+[ext_resource type="PackedScene" uid="uid://dw4h5ng74q8aw" path="res://Scenes/Globals/AudioManager/Audio_Oneshot/audio_one_shot.tscn" id="2_4keoc"]
+
+[node name="AudioManager" type="Node" unique_id=1786783553]
+script = ExtResource("1_ef46y")
+audio_one_shot_scene = ExtResource("2_4keoc")
+
+[node name="AudioStreamPlayer1" type="AudioStreamPlayer" parent="." unique_id=930867654]
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1650058192]
+
+[node name="OneShots" type="Node" parent="." unique_id=1827927825]
