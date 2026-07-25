@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 		queue_free()
 		
 	if !launched:
-		print(position.x, " : ", position.y)
+		#print(position.x, " : ", position.y)
 		# y min = -50000
 		# x min = 10000
 		# y max = -20000

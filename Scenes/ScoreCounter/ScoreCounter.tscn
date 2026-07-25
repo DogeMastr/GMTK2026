@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://eymv4ku8sn2s"]
+
+[ext_resource type="PackedScene" uid="uid://u7pcg6melb12" path="res://Scenes/ScoreCounter/ScoreDigit.tscn" id="1_4r3vn"]
+[ext_resource type="Script" uid="uid://26hl4x3r63xf" path="res://Scenes/ScoreCounter/score_counter.gd" id="1_73s0f"]
+
+[node name="ScoreCounter" type="Node2D" unique_id=1203786276]
+script = ExtResource("1_73s0f")
+
+[node name="ScoreDigit1" parent="." unique_id=917841731 instance=ExtResource("1_4r3vn")]
+
+[node name="ScoreDigit2" parent="." unique_id=391422919 instance=ExtResource("1_4r3vn")]
+position = Vector2(32, 0)
+
+[node name="ScoreDigit3" parent="." unique_id=892766657 instance=ExtResource("1_4r3vn")]
+position = Vector2(64, 0)
+
+[node name="ScoreDigit4" parent="." unique_id=1204806206 instance=ExtResource("1_4r3vn")]
+position = Vector2(96, 0)
+
+[node name="ScoreDigit5" parent="." unique_id=820421724 instance=ExtResource("1_4r3vn")]
+position = Vector2(128, 0)
+
+[node name="ScoreDigit6" parent="." unique_id=43186861 instance=ExtResource("1_4r3vn")]
+position = Vector2(160, 0)
+
+[node name="ScoreDigit7" parent="." unique_id=366531682 instance=ExtResource("1_4r3vn")]
+position = Vector2(192, 0)
+
+[node name="ScoreDigit8" parent="." unique_id=1091180539 instance=ExtResource("1_4r3vn")]
+position = Vector2(224, 0)
