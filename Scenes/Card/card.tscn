@@ -1,19 +1,16 @@
 [gd_scene format=3 uid="uid://cdtamjm72l2y"]
 
-[ext_resource type="Texture2D" uid="uid://cr5us2yhhqksl" path="res://Assets/Art/Cards In Hand/Card1Hand.png" id="1_r5dc4"]
 [ext_resource type="Script" uid="uid://bxdfsx3m7qjej" path="res://Scenes/Card/card.gd" id="1_rffhp"]
-[ext_resource type="Texture2D" uid="uid://dm2ir72542pr2" path="res://Assets/Art/Cards In Hand/Card2Hand.png" id="2_rffhp"]
-[ext_resource type="Texture2D" uid="uid://cb523hwfd7mps" path="res://Assets/Art/Cards In Hand/Card3Hand.png" id="3_j6efv"]
-[ext_resource type="Texture2D" uid="uid://kbjhx01ufe4t" path="res://Assets/Art/Cards In Hand/Card4Hand.png" id="4_hebtv"]
-[ext_resource type="Texture2D" uid="uid://do7tbxsv53ep0" path="res://Assets/Art/Cards In Hand/Card5Hand.png" id="5_c26c2"]
-[ext_resource type="Texture2D" uid="uid://oh4lvuhgqsjl" path="res://Assets/Art/Cards In Hand/Card6Hand.png" id="6_h04vv"]
+[ext_resource type="Texture2D" uid="uid://d3fgqp04ieqf3" path="res://Assets/Art/Cards In Hand (FinalHopefully)/CardHand1.png" id="2_rffhp"]
+[ext_resource type="Texture2D" uid="uid://dmy8l8f7mcmv3" path="res://Assets/Art/Cards In Hand (FinalHopefully)/CardHand2.png" id="3_j6efv"]
+[ext_resource type="Texture2D" uid="uid://djt02i5hp6ifv" path="res://Assets/Art/Cards In Hand (FinalHopefully)/CardHand3.png" id="4_hebtv"]
+[ext_resource type="Texture2D" uid="uid://cf6r7ldduer6d" path="res://Assets/Art/Cards In Hand (FinalHopefully)/CardHand4.png" id="5_c26c2"]
+[ext_resource type="Texture2D" uid="uid://b6m8nr8hte51l" path="res://Assets/Art/Cards In Hand (FinalHopefully)/CardHand5.png" id="6_h04vv"]
+[ext_resource type="Texture2D" uid="uid://dxh2qop40gu4v" path="res://Assets/Art/Cards In Hand (FinalHopefully)/CardHand6.png" id="7_l01fu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qdslu"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_r5dc4")
-}, {
 "duration": 1.0,
 "texture": ExtResource("2_rffhp")
 }, {
@@ -28,6 +25,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("6_h04vv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_l01fu")
 }],
 "loop": 1,
 "name": &"default",
@@ -35,20 +35,20 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rffhp"]
-size = Vector2(72, 122)
+size = Vector2(72, 120)
 
 [node name="Card" type="Node2D" unique_id=1546118184 groups=["card"]]
 script = ExtResource("1_rffhp")
 
 [node name="CardSprites" type="AnimatedSprite2D" parent="." unique_id=882698617]
-position = Vector2(-2.3841858e-07, -63.00002)
-scale = Vector2(0.8, 0.8)
+position = Vector2(-2.3841858e-07, -60.00002)
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_qdslu")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=109072919]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1012527170]
-position = Vector2(2, -66)
+position = Vector2(0, -60)
 shape = SubResource("RectangleShape2D_rffhp")
 
 [node name="Label" type="Label" parent="." unique_id=1036080333]
