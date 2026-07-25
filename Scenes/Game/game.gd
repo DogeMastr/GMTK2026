@@ -86,8 +86,9 @@ func run_grid_scrolling(delta):
 	#var player_distance = $TileGrid/Mole.global_position.y/(get_viewport().size.y)
 	var player_distance = remap_range($TileGrid/Mole.global_position.y, ideal_headroom, get_viewport().size.y, 0, 1)
 	weight = lerp(weight, player_distance, delta*weight_decay)
-	var scroll_speed = lerp(min_scroll_speed,max_scroll_speed,weight) * scroll_scale
-	scroll_speed = clamp(scroll_speed, min_scroll_speed*scroll_scale, max_scroll_speed*scroll_scale)
+	var min_scroll_and_diff = min_scroll_speed + EventBus.difficulty
+	var scroll_speed = lerp(min_scroll_and_diff,max_scroll_speed,weight) * scroll_scale
+	scroll_speed = clamp(scroll_speed, min_scroll_and_diff*scroll_scale, max_scroll_speed*scroll_scale)
 	$TileGrid.position.y -= scroll_speed
 	DebugGraph.plot("weight", weight*100)
 	DebugGraph.plot("pos", player_distance)
