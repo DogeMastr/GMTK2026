@@ -62,7 +62,7 @@ func digging_out_row():
 				print("death")
 				EventBus.mole_dies.emit()
 			break
-		if not row_tile.type == 5 or not row_tile.type == 3:
+		if not row_tile.type == 5:
 			row_tile.type = -1
 			pass
 	

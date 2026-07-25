@@ -55,6 +55,8 @@ func move_mole_down(amount_to_travel: int):
 		
 		for i in range(amount_to_travel):
 			var tile_to_travel_to = EventBus.get_tile(x_pos, y_pos + i + 1)
+			if tile_to_travel_to.type == 0:
+				tile_to_travel_to.type = -1
 			if tile_to_travel_to.type == 5:
 				amount_to_travel = i
 				AudioManager.play_audio_one_shot(rock_sfx, 2.0)
@@ -65,8 +67,6 @@ func move_mole_down(amount_to_travel: int):
 				EventBus.mole_dies.emit()
 				
 				break
-			if tile_to_travel_to.type == 0:
-				tile_to_travel_to.type = -1
 			EventBus.get_tile(x_pos,y_pos).has_been_dug_from = true
 			tile_to_travel_to.has_mole = true
 			

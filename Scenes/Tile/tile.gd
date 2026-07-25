@@ -186,13 +186,13 @@ func get_dirt_data():
 			_:
 				return 0
 				
-	elif (type == 4) or (type == 5):
+	elif (type == 4) or (type == 5) or (type == 3):
 		if directions == [true, false, true] :
 			if N_tile.type == 5:
 				return 4
 			if has_been_dug_into and type == 4:
 				return 2
-			if type == 5 and (digged_horizontally(E_tile) or digged_horizontally(W_tile)):
+			if (type == 5 or type == 3) and (digged_horizontally(E_tile) or digged_horizontally(W_tile)):
 				return 0
 			else:
 				return 4

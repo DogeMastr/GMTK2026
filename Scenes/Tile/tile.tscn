@@ -228,7 +228,6 @@ frame_progress = 0.07945124
 shape = SubResource("RectangleShape2D_qdslu")
 
 [node name="Label" type="Label" parent="." unique_id=1553181567]
-visible = false
 z_index = 2
 offset_right = 40.0
 offset_bottom = 23.0
