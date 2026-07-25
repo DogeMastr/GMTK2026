@@ -12,6 +12,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	if $AnimatedSprite2D.get_frame() < 2:
+		$Circle.set_deferred("disabled", true)
+		$Square.set_deferred("disabled", false)
+	else:
+		$Circle.set_deferred("disabled", false)
+		$Square.set_deferred("disabled", true)
+
 	if(global_position.y > 900):
 		queue_free()
 		
