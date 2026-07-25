@@ -18,7 +18,7 @@ func _ready() -> void:
 func fade_music_in(track: AudioStream) -> void:
 	current_music_player.stream = track # Specify the song
 	current_music_player.volume_db = mute_db # Mute the player
-	current_music_player.play(85) # Start playing
+	current_music_player.play() # Start playing
 	# Use tweens for transition:
 	var tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	tween.tween_property(current_music_player, "volume_db", default_music_db, fade_time)
