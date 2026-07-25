@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://rrpcjt0o6nfk"
-path="res://.godot/imported/diggame.wav-9cb056ecc27411b37ee607c6e4c6b576.sample"
+path="res://.godot/imported/diggame.wav-ea68f26bf15324e45b0af0e546ea409e.sample"
 
 [deps]
 
-source_file="res://Assets/Sound/music/diggame.wav"
-dest_files=["res://.godot/imported/diggame.wav-9cb056ecc27411b37ee607c6e4c6b576.sample"]
+source_file="res://Assets/Sound/Music/diggame.wav"
+dest_files=["res://.godot/imported/diggame.wav-ea68f26bf15324e45b0af0e546ea409e.sample"]
 
 [params]
 
