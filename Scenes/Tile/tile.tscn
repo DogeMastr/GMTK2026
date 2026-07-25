@@ -213,8 +213,8 @@ size = Vector2(32, 32)
 script = ExtResource("1_b86n5")
 
 [node name="EntitySprite" type="AnimatedSprite2D" parent="." unique_id=595923130]
-visible = false
 z_index = 2
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qdslu")
 animation = &"hazard"
 
@@ -237,7 +237,7 @@ text = "0"
 z_index = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qdslu")
-animation = &"gold"
+animation = &"dirt_frames"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

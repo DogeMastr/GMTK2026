@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 
 func move_mole_down(amount_to_travel: int):
 	if amount_to_travel > 0:
-		EventBus.get_tile(x_pos,y_pos).dig_through_tile()
+		
 		for i in range(amount_to_travel):
 			var tile_to_travel_to = EventBus.get_tile(x_pos, y_pos + i + 1)
 			if tile_to_travel_to.type == 5:
@@ -57,6 +57,8 @@ func move_mole_down(amount_to_travel: int):
 				amount_to_travel = i + 1
 				EventBus.mole_dies.emit()
 				break
+			tile_to_travel_to.type = -1
+			EventBus.get_tile(x_pos,y_pos).has_been_dug_from = true
 			tile_to_travel_to.has_mole = true
 			#if not EventBus.get_tile(x_pos, y_pos + i).type == 5:
 				#EventBus.get_tile(x_pos, y_pos + i).type = -1
@@ -64,6 +66,7 @@ func move_mole_down(amount_to_travel: int):
 		target_y = position.y + EventBus.tile_width * amount_to_travel
 		currently_digging = true
 		y_pos += amount_to_travel
+		EventBus.get_tile(x_pos,y_pos).has_been_dug_into = true
 		
 func death():
 	print("dead")
