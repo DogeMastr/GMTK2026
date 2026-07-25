@@ -50,7 +50,9 @@ func move_mole_down(amount_to_travel: int):
 				amount_to_travel = i + 1
 				EventBus.mole_dies.emit()
 				break
-			tile_to_travel_to.type = -1
+			print(tile_to_travel_to.type)
+			if tile_to_travel_to.type == 0:
+				tile_to_travel_to.type = -1
 			EventBus.get_tile(x_pos,y_pos).has_been_dug_from = true
 			tile_to_travel_to.has_mole = true
 			#if not EventBus.get_tile(x_pos, y_pos + i).type == 5:
@@ -62,4 +64,5 @@ func move_mole_down(amount_to_travel: int):
 		EventBus.get_tile(x_pos,y_pos).has_been_dug_into = true
 		
 func death():
-	print("dead")
+	print("death")
+	$CollisionShape2D.disabled = true

@@ -109,7 +109,7 @@ animations = [{
 size = Vector2(32, 32)
 
 [node name="Mole" type="CharacterBody2D" unique_id=1621295552]
-z_index = 2
+z_index = 3
 script = ExtResource("1_ow5gg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=228198166]
@@ -117,7 +117,7 @@ position = Vector2(0, -8)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_f6fn4")
 autoplay = "default"
-frame_progress = 0.015201743
+frame_progress = 0.60603565
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1715951690]
 shape = SubResource("RectangleShape2D_qdslu")

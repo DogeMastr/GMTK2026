@@ -44,7 +44,7 @@ func _ready() -> void:
 	$DirtSprite.set_animation("dirt_frames")
 
 func _process(delta: float) -> void:
-#	check_if_off_screen_and_die()
+	check_if_off_screen_and_die()
 #	if has_mole:
 #		$Sprite2D.modulate = Color(base_color.h, 0, base_color.v)
 #	else:
@@ -53,13 +53,16 @@ func _process(delta: float) -> void:
 	
 	if has_mole:
 		if type == 1: # Gold pick up
-			EventBus.score += 1
+			EventBus.score += entity_data
+			type = -1
 		if type == 2: # Card pick up
 			EventBus.add_card.emit(entity_data)
 			$EntitySprite.set_visible(false)
+			type = -1
 		if type == 3: #Death
 			EventBus.mole_dies.emit()
 			$EntitySprite.set_visible(false)
+			type = -1
 		
 		if type == 5: #Rock
 			pass
@@ -171,7 +174,9 @@ func get_dirt_data():
 				return 0
 				
 	elif (type == 4) or (type == 5):
-		if directions == [true, false, true]:
+		if directions == [true, false, true] :
+			if N_tile.type == 5:
+				return 4
 			if has_been_dug_into:
 				return 2
 			else:
@@ -185,10 +190,10 @@ func get_dirt_data():
 		return 0
 			
 
-#func check_if_off_screen_and_die():
-	#if global_position.y < -550:
-		#EventBus.mole_dies.emit()
-
+func check_if_off_screen_and_die():
+	if global_position.y < -550:
+		queue_free()
+		
 func get_dirt_data_emptys(directions, E_tile, W_tile):
 	match directions:
 			[true, true, true]:
