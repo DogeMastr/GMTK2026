@@ -26,6 +26,7 @@ AudioManager="*uid://dkv8mm7buhafk"
 window/size/viewport_width=768
 window/size/viewport_height=576
 window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 
 [editor_plugins]
 
