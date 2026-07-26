@@ -19,6 +19,7 @@ func _ready() -> void:
 	EventBus.mole_dies.connect(death)
 
 func _process(delta: float) -> void:
+	EventBus.is_mole_digging = currently_digging
 	# PLAYER INPUTS
 	if Input.is_action_just_pressed("player_left") and EventBus.mole_alive_status and not currently_digging:
 		if x_pos != 0 and not EventBus.get_tile(x_pos - 1, y_pos).type == 5:

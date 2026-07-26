@@ -16,7 +16,7 @@ var difficulty = 0
 var hand = []
 var current_row = []
 var mole_alive_status = true
-
+var is_mole_digging = false
 
 func get_tile(x, y):
 	# this is the most inefficient search i could think of youre welcome :3
