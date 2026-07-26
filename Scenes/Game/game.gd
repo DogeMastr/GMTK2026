@@ -90,6 +90,7 @@ func flow_lava(row):
 
 var weight = 0.0
 const weight_decay = 16
+
 func run_grid_scrolling(delta):
 	#print(delta)
 	# theres math involved here
@@ -100,7 +101,11 @@ func run_grid_scrolling(delta):
 	weight = lerp(weight, player_distance, delta*weight_decay)
 	var min_scroll_and_diff = min_scroll_speed + EventBus.difficulty
 	var scroll_speed = lerp(min_scroll_and_diff,max_scroll_speed,weight) * scroll_scale
+	if not EventBus.mole_alive_status:
+		min_scroll_and_diff = 0
 	scroll_speed = clamp(scroll_speed, min_scroll_and_diff*scroll_scale, max_scroll_speed*scroll_scale)
+	if not EventBus.mole_alive_status and is_zero_approx(scroll_speed):
+		scroll_speed = 0
 	$TileGrid.position.y -= scroll_speed
 	DebugGraph.plot("weight", weight*100)
 	DebugGraph.plot("pos", player_distance)
