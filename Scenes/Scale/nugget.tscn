@@ -60,7 +60,7 @@ script = ExtResource("1_vgboa")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1268894075]
 sprite_frames = SubResource("SpriteFrames_o8a6j")
 
-[node name="Cricle" type="CollisionShape2D" parent="." unique_id=1764146407]
+[node name="Circle" type="CollisionShape2D" parent="." unique_id=1764146407]
 shape = SubResource("CircleShape2D_qdslu")
 
 [node name="Square" type="CollisionShape2D" parent="." unique_id=389081844]
