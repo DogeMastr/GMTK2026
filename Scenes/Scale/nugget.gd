@@ -26,7 +26,14 @@ func _process(delta: float) -> void:
 		apply_force(Vector2(x_force,y_force))
 		launched = true
 		pass
-	pass
+		
+	if $AnimatedSprite2D.get_frame() < 2:
+		$Circle.set_deferred("disabled", true)
+		$Square.set_deferred("disabled", false)
+	else:
+		$Circle.set_deferred("disabled", false)
+		$Square.set_deferred("disabled", true)
+
 
 func remap_range(value: float, InputA: float, InputB: float, OutputA: float, OutputB: float):
 	return(value - InputA) / (InputB - InputA) * (OutputB - OutputA) + OutputA

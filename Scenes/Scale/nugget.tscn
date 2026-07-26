@@ -49,6 +49,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_qdslu"]
 radius = 16.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdslu"]
+size = Vector2(27, 23)
+
 [node name="Nugget" type="RigidBody2D" unique_id=1203335746]
 collision_layer = 2
 collision_mask = 2
@@ -57,5 +60,9 @@ script = ExtResource("1_vgboa")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1268894075]
 sprite_frames = SubResource("SpriteFrames_o8a6j")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1764146407]
+[node name="Cricle" type="CollisionShape2D" parent="." unique_id=1764146407]
 shape = SubResource("CircleShape2D_qdslu")
+
+[node name="Square" type="CollisionShape2D" parent="." unique_id=389081844]
+position = Vector2(-0.5, -4.5)
+shape = SubResource("RectangleShape2D_qdslu")
