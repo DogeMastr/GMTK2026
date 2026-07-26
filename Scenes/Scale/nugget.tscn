@@ -49,9 +49,6 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_qdslu"]
 radius = 16.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdslu"]
-size = Vector2(27, 23)
-
 [node name="Nugget" type="RigidBody2D" unique_id=1203335746]
 collision_layer = 2
 collision_mask = 2
@@ -63,6 +60,13 @@ sprite_frames = SubResource("SpriteFrames_o8a6j")
 [node name="Circle" type="CollisionShape2D" parent="." unique_id=1764146407]
 shape = SubResource("CircleShape2D_qdslu")
 
-[node name="Square" type="CollisionShape2D" parent="." unique_id=389081844]
-position = Vector2(-0.5, -4.5)
-shape = SubResource("RectangleShape2D_qdslu")
+[node name="Square1" type="CollisionPolygon2D" parent="." unique_id=734997600]
+position = Vector2(-2, -7)
+polygon = PackedVector2Array(-3, -8, 1, -9, 8, -7, 10.625, 0, 15, 5, 6, 11, -2, 13, -14, 5, -7, -6)
+
+[node name="Square2" type="CollisionPolygon2D" parent="." unique_id=131169862]
+position = Vector2(-2, -8)
+polygon = PackedVector2Array(15, -4, 14, 8, -4, 19, -13, 15, -12, 5, -1, -6, 2, -8)
+
+[node name="Square3" type="CollisionPolygon2D" parent="." unique_id=1739427877]
+polygon = PackedVector2Array(3, -14, 12, -8, 12, 0, 15, 5, 2, 10, -9, 2, -14, -2, -13, -9, -4, -11)

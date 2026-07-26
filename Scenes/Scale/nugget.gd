@@ -21,18 +21,26 @@ func _process(delta: float) -> void:
 		# x min = 10000
 		# y max = -20000
 		# x max = 25000
-		var x_force = remap_range(position.x, 63, 350, 25000, 15000)
+		var x_force = remap_range(position.x, 63, 350, 25000, 12000)
 		var y_force = remap_range(position.y, 0, 600, -20000, -50000)
 		apply_force(Vector2(x_force,y_force))
 		launched = true
 		pass
 		
-	if $AnimatedSprite2D.get_frame() < 2:
-		$Circle.set_deferred("disabled", true)
-		$Square.set_deferred("disabled", false)
+	$Square1.set_deferred("disabled", true)
+	$Square2.set_deferred("disabled", true)
+	$Square3.set_deferred("disabled", true)
+	$Circle.set_deferred("disabled", true)
+	
+	if $AnimatedSprite2D.get_frame() == 0:
+		$Square1.set_deferred("disabled", false)
+	elif $AnimatedSprite2D.get_frame() == 1:
+		$Square2.set_deferred("disabled", false)
+	elif $AnimatedSprite2D.get_frame() == 2:
+		$Square3.set_deferred("disabled", false)
 	else:
 		$Circle.set_deferred("disabled", false)
-		$Square.set_deferred("disabled", true)
+		
 
 
 func remap_range(value: float, InputA: float, InputB: float, OutputA: float, OutputB: float):

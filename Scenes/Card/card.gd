@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 		$CardSprites.position.y = lerp($CardSprites.position.y, sprite_offset_y-40, 0.3)
 	else:
 		$CardSprites.position.y = lerp($CardSprites.position.y, sprite_offset_y, 0.3)
-	$Label.text = str(is_selected)
+	#$Label.text = str(is_selected)
 	
 	if has_mouse and !is_selected:
 		var all_cards = get_tree().get_nodes_in_group("card")

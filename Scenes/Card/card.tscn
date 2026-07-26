@@ -51,10 +51,5 @@ sprite_frames = SubResource("SpriteFrames_qdslu")
 position = Vector2(0, -60)
 shape = SubResource("RectangleShape2D_rffhp")
 
-[node name="Label" type="Label" parent="." unique_id=1036080333]
-visible = false
-offset_right = 40.0
-offset_bottom = 23.0
-
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_mouse_exited"]
