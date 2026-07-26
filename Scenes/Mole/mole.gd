@@ -20,7 +20,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	# PLAYER INPUTS
-	if Input.is_action_just_pressed("player_left") and EventBus.mole_alive_status:
+	if Input.is_action_just_pressed("player_left") and EventBus.mole_alive_status and not currently_digging:
 		if x_pos != 0 and not EventBus.get_tile(x_pos - 1, y_pos).type == 5:
 			position.x -= EventBus.tile_width
 			x_pos -= 1
@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 		AudioManager.play_audio_one_shot(digging_sfx, 5.0)
 
 
-	if Input.is_action_just_pressed("player_right") and EventBus.mole_alive_status:
+	if Input.is_action_just_pressed("player_right") and EventBus.mole_alive_status and not currently_digging:
 		if x_pos != 4 and not EventBus.get_tile(x_pos + 1, y_pos).type == 5:
 			position.x += EventBus.tile_width
 			x_pos += 1

@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://m3hq03ot84wt"]
 
+[ext_resource type="FontFile" uid="uid://dqi4behuchs6a" path="res://Assets/Art/Fonts/image.fnt" id="1_ms75n"]
+
 [node name="GameOver" type="Control" unique_id=748321070]
 layout_mode = 3
 anchors_preset = 15
@@ -20,11 +22,13 @@ grow_vertical = 2
 layout_mode = 2
 alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1962539485]
+[node name="Game_Over" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1962539485]
 layout_mode = 2
-text = "You died!
-Your highscore is:
- "
+theme_override_fonts/normal_font = ExtResource("1_ms75n")
+bbcode_enabled = true
+text = "GAME OVER
+YOUR HIGHSCORE IS
+"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1

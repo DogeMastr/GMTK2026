@@ -1,31 +1,32 @@
-[gd_scene format=3 uid="uid://bxkwvkn7uf0sh"]
+[gd_scene format=4 uid="uid://bxkwvkn7uf0sh"]
 
 [ext_resource type="Script" uid="uid://bp7n4ccfsadk6" path="res://Scenes/Menus/Main Menu/main_menu.gd" id="1_xqj42"]
 [ext_resource type="Theme" uid="uid://debc8wh67ylqq" path="res://Assets/empty_theme.tres" id="2_j1dbm"]
-[ext_resource type="Texture2D" uid="uid://d1okq7tuqlday" path="res://Assets/Art/Menu Buttons Idle/ButtonPlay.png" id="3_2dscg"]
-[ext_resource type="Texture2D" uid="uid://g10lljguoovk" path="res://Assets/Art/Menu Buttons Pressing/ButtonPlayPressing.png" id="4_qjtel"]
-[ext_resource type="Texture2D" uid="uid://da6ui8b5wdmmt" path="res://Assets/Art/Menu Buttons Hover/ButtonPlayHover.png" id="5_jtovg"]
-[ext_resource type="Texture2D" uid="uid://siav61r3y7j5" path="res://Assets/Art/Menu Buttons Idle/ButtonExit.png" id="6_uarwu"]
-[ext_resource type="Texture2D" uid="uid://decf1saakviih" path="res://Assets/Art/Menu Buttons Pressing/ButtonExitPressing.png" id="7_vd6dx"]
-[ext_resource type="Texture2D" uid="uid://2legf2mff3om" path="res://Assets/Art/Menu Buttons Hover/ButtonExitHover.png" id="8_kbojc"]
+[ext_resource type="Texture2D" uid="uid://q5qrkf5nbwkd" path="res://Assets/Art/Menu Buttons Tile Based/play.png" id="4_jtovg"]
+[ext_resource type="Texture2D" uid="uid://b4r1buc26qhtb" path="res://Assets/Art/tilesheet.png" id="9_vd6dx"]
+[ext_resource type="Texture2D" uid="uid://b5dtcnix1dldq" path="res://Assets/Art/logo.png" id="10_kbojc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kbojc"]
+texture = ExtResource("9_vd6dx")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_f6fn4"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_kbojc")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dtvc6"]
-texture = ExtResource("3_2dscg")
+texture = ExtResource("4_jtovg")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nm3b7"]
-texture = ExtResource("4_qjtel")
+texture = ExtResource("4_jtovg")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hb3m6"]
-texture = ExtResource("5_jtovg")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uarwu"]
-texture = ExtResource("6_uarwu")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vd6dx"]
-texture = ExtResource("7_vd6dx")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kbojc"]
-texture = ExtResource("8_kbojc")
+texture = ExtResource("4_jtovg")
+modulate_color = Color(0.7708395, 0.77083945, 0.77083945, 1)
 
 [node name="MainMenu" type="Control" unique_id=1451464510]
 layout_mode = 3
@@ -38,26 +39,26 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_xqj42")
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=34559294]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -119.0
-offset_top = -42.0
-offset_right = 9.0
-offset_bottom = 42.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Dirt" type="TileMapLayer" parent="." unique_id=1888117305]
 scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAAAAAAAAAADAAMAAAAAAAEAAAADAAMAAAAAAAIAAAADAAMAAAAAAAMAAAADAAMAAAAAAAQAAAADAAMAAAAAAAUAAAADAAMAAAAAAAYAAAADAAMAAAAAAAcAAAADAAMAAAAAAAgAAAADAAMAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAABAAQAAAAAAAAAAAABAAUAAAAAAAAAAAABAAYAAAAAAAAAAAABAAcAAAAAAAAAAAABAAgAAAAAAAAAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAFAAYAAAAAAAAAAAAFAAcAAAAAAAAAAAAFAAgAAAAAAAAAAAAGAAAAAAADAAMAAAAGAAEAAAADAAMAAAAGAAIAAAADAAMAAAAGAAMAAAADAAMAAAAGAAQAAAADAAMAAAAGAAUAAAADAAMAAAAGAAYAAAADAAMAAAAGAAcAAAADAAMAAAAGAAgAAAADAAMAAAAHAAAAAAADAAMAAAAHAAEAAAADAAMAAAAHAAIAAAADAAMAAAAHAAMAAAADAAMAAAAHAAQAAAADAAMAAAAHAAUAAAADAAMAAAAHAAYAAAADAAMAAAAHAAcAAAADAAMAAAAHAAgAAAADAAMAAAAIAAAAAAADAAMAAAAIAAEAAAADAAMAAAAIAAIAAAADAAMAAAAIAAMAAAADAAMAAAAIAAQAAAADAAMAAAAIAAUAAAADAAMAAAAIAAYAAAADAAMAAAAIAAcAAAADAAMAAAAIAAgAAAADAAMAAAAJAAAAAAADAAMAAAAJAAEAAAADAAMAAAAJAAIAAAADAAMAAAAJAAMAAAADAAMAAAAJAAQAAAADAAMAAAAJAAUAAAADAAMAAAAJAAYAAAADAAMAAAAJAAcAAAADAAMAAAAJAAgAAAADAAMAAAAKAAAAAAADAAMAAAAKAAEAAAADAAMAAAAKAAIAAAADAAMAAAAKAAMAAAADAAMAAAAKAAQAAAADAAMAAAAKAAUAAAADAAMAAAAKAAYAAAADAAMAAAAKAAcAAAADAAMAAAAKAAgAAAADAAMAAAALAAAAAAADAAMAAAALAAEAAAADAAMAAAALAAIAAAADAAMAAAALAAMAAAADAAMAAAALAAQAAAADAAMAAAALAAUAAAADAAMAAAALAAYAAAADAAMAAAALAAcAAAADAAMAAAALAAgAAAADAAMAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAACAAUAAAAAAAAAAAACAAYAAAAAAAAAAAACAAcAAAAAAAAAAAACAAgAAAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAADAAYAAAAAAAAAAAADAAcAAAAAAAAAAAADAAgAAAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAMAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAUAAAAAAAAAAAAEAAYAAAAAAAAAAAAEAAcAAAAAAAAAAAAEAAgAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_f6fn4")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1324220436]
-layout_mode = 2
+[node name="Folliage" type="TileMapLayer" parent="." unique_id=2031067724]
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAAAAAAAAAADAAMAAAAAAAEAAAADAAMAAAAAAAIAAAADAAMAAAAAAAMAAAADAAMAAAAAAAQAAAADAAMAAAAAAAUAAAADAAMAAAAAAAYAAAADAAMAAAAAAAcAAAADAAMAAAAAAAgAAAADAAMAAAABAAAAAAACAAAAAAABAAEAAAACAAAAAAABAAIAAAACAAAAAAABAAMAAAACAAAAAAABAAQAAAACAAAAAAABAAUAAAACAAAAAAABAAYAAAACAAAAAAABAAcAAAACAAAAAAABAAgAAAACAAAAAAAFAAAAAAADAAAAAAAFAAEAAAADAAAAAAAFAAIAAAADAAAAAAAFAAMAAAADAAAAAAAFAAQAAAADAAAAAAAFAAUAAAADAAAAAAAFAAYAAAADAAAAAAAFAAcAAAADAAAAAAAFAAgAAAADAAAAAAAGAAAAAAADAAMAAAAGAAEAAAADAAMAAAAGAAIAAAADAAMAAAAGAAMAAAADAAMAAAAGAAQAAAADAAMAAAAGAAUAAAADAAMAAAAGAAYAAAADAAMAAAAGAAcAAAADAAMAAAAGAAgAAAADAAMAAAAHAAAAAAADAAMAAAAHAAEAAAADAAMAAAAHAAIAAAADAAMAAAAHAAMAAAADAAMAAAAHAAQAAAADAAMAAAAHAAUAAAADAAMAAAAHAAYAAAADAAMAAAAHAAcAAAADAAMAAAAHAAgAAAADAAMAAAAIAAAAAAADAAMAAAAIAAEAAAADAAMAAAAIAAIAAAADAAMAAAAIAAMAAAADAAMAAAAIAAQAAAADAAMAAAAIAAUAAAADAAMAAAAIAAYAAAADAAMAAAAIAAcAAAADAAMAAAAIAAgAAAADAAMAAAAJAAAAAAADAAMAAAAJAAEAAAADAAMAAAAJAAIAAAADAAMAAAAJAAMAAAADAAMAAAAJAAQAAAADAAMAAAAJAAUAAAADAAMAAAAJAAYAAAADAAMAAAAJAAcAAAADAAMAAAAJAAgAAAADAAMAAAAKAAAAAAADAAMAAAAKAAEAAAADAAMAAAAKAAIAAAADAAMAAAAKAAMAAAADAAMAAAAKAAQAAAADAAMAAAAKAAUAAAADAAMAAAAKAAYAAAADAAMAAAAKAAcAAAADAAMAAAAKAAgAAAADAAMAAAALAAAAAAADAAMAAAALAAEAAAADAAMAAAALAAIAAAADAAMAAAALAAMAAAADAAMAAAALAAQAAAADAAMAAAALAAUAAAADAAMAAAALAAYAAAADAAMAAAALAAcAAAADAAMAAAALAAgAAAADAAMAAAA=")
+tile_set = SubResource("TileSet_f6fn4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1324220436]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 212.0
+offset_right = 230.0
+offset_bottom = 296.0
+scale = Vector2(1.9666667, 1.9666667)
 alignment = 1
 
-[node name="Play" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1548383347]
+[node name="Play" type="Button" parent="VBoxContainer" unique_id=1548383347]
 custom_minimum_size = Vector2(128, 40)
 layout_mode = 2
 theme = ExtResource("2_j1dbm")
@@ -65,19 +66,13 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_dtvc6")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_nm3b7")
 theme_override_styles/hover = SubResource("StyleBoxTexture_hb3m6")
 
-[node name="Exit" type="Button" parent="CenterContainer/VBoxContainer" unique_id=278093207]
-custom_minimum_size = Vector2(128, 40)
-layout_mode = 2
-theme = ExtResource("2_j1dbm")
-theme_override_styles/normal = SubResource("StyleBoxTexture_uarwu")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_vd6dx")
-theme_override_styles/hover = SubResource("StyleBoxTexture_kbojc")
-
-[node name="LinkButton" type="LinkButton" parent="CenterContainer/VBoxContainer/Exit" unique_id=2131028494]
+[node name="Panel" type="TextureRect" parent="." unique_id=1962646794]
 layout_mode = 0
-offset_right = 128.75
-offset_bottom = 40.0
-uri = "https://one-heart-games.itch.io/"
+offset_left = 414.0
+offset_top = 141.0
+offset_right = 542.0
+offset_bottom = 253.0
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("10_kbojc")
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
