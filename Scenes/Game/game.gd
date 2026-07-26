@@ -14,7 +14,7 @@ var height = 15
 const scroll_scale = 0.01
 const min_scroll_speed = 5
 const max_scroll_speed = 200
-var ideal_headroom = EventBus.tile_width*2.5
+var ideal_headroom = EventBus.tile_width*2
 
 # this value increases as the game progresses, controls the scale of the random tile generations
 
@@ -96,9 +96,9 @@ func run_grid_scrolling(delta):
 	var scroll_speed = lerp(min_scroll_and_diff,max_scroll_speed,weight) * scroll_scale
 	scroll_speed = clamp(scroll_speed, min_scroll_and_diff*scroll_scale, max_scroll_speed*scroll_scale)
 	$TileGrid.position.y -= scroll_speed
-	DebugGraph.plot("weight", weight*100)
-	DebugGraph.plot("pos", player_distance)
-	DebugGraph.plot("speed", scroll_speed)
+	#DebugGraph.plot("weight", weight*100)
+	#DebugGraph.plot("pos", player_distance)
+	#DebugGraph.plot("speed", scroll_speed)
 	# https://www.youtube.com/watch?v=LSNQuFEDOyQ
 	pass
 

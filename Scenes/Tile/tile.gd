@@ -62,7 +62,7 @@ func _process(delta: float) -> void:
 #		$Sprite2D.modulate = Color(base_color.h, 0, base_color.v)
 #	else:
 #		$Sprite2D.modulate = base_color
-	$Label.text = str(type)
+	#$Label.text = str(type)
 	
 	if has_mole:
 		if type == 1: # Gold pick up
@@ -121,9 +121,9 @@ func _process(delta: float) -> void:
 	dirt_data = get_dirt_data()
 	$DirtSprite.set_frame(dirt_data)
 	
-	if type == -1 and sent_particles == false:
-		$GPUParticles2D.set_emitting(true)
-		$GPUParticles2D2.set_emitting(true)
+	#if type == -1 and sent_particles == false:
+		#$GPUParticles2D.set_emitting(true)
+		#$GPUParticles2D2.set_emitting(true)
 	
 func _on_body_entered(body: Node2D) -> void:
 	if body is Mole:
