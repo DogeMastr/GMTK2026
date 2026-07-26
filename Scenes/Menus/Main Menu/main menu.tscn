@@ -75,4 +75,5 @@ offset_bottom = 253.0
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("10_kbojc")
 
+[connection signal="mouse_entered" from="VBoxContainer/Play" to="." method="_on_play_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]

@@ -1,7 +1,10 @@
 extends Node2D
 
+
 var current_score = 0
 # target_score is eventbus.score
+
+@onready var score_counter_sfx = preload("res://Assets/Sound/soundeffects/scoreincrement.wav")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,6 +14,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if current_score != EventBus.score:
+		AudioManager.play_audio_one_shot(score_counter_sfx, 1.0)
 		current_score = EventBus.score
 		var string_score = "%08d" % current_score
 		#print(string_score)

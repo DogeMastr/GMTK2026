@@ -71,14 +71,16 @@ vertical_alignment = 1
 
 [node name="Button" type="Button" parent="." unique_id=1433557399]
 layout_mode = 0
-offset_left = 156.0
-offset_top = 328.0
-offset_right = 279.7097
-offset_bottom = 387.0
+offset_left = 149.0
+offset_top = 322.0
+offset_right = 155.95
+offset_bottom = 325.55
+scale = Vector2(20, 20)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxTexture_m26mx")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_wlbcb")
 theme_override_styles/hover = SubResource("StyleBoxTexture_j0od2")
 
+[connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
