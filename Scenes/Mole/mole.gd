@@ -78,6 +78,6 @@ func move_mole_down(amount_to_travel: int):
 		
 func death():
 	EventBus.mole_alive_status = false
-	await $AnimatedSprite2D.animation_looped
+	
 	AudioManager.play_audio_one_shot(death_mole_sfx, 1.0)
 	$AnimatedSprite2D.set_animation("death")
