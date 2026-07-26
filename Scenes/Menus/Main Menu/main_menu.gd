@@ -36,4 +36,4 @@ func _on_play_mouse_entered() -> void:
 
 func _on_volume_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(0, value-30)
-	print(value)
+	#print(value)

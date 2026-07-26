@@ -92,7 +92,7 @@ offset_right = 725.0
 offset_bottom = 69.0
 theme_override_icons/grabber = SubResource("AtlasTexture_y0k3y")
 theme_override_icons/grabber_highlight = SubResource("AtlasTexture_p1e75")
-max_value = 60.0
+max_value = 45.0
 step = 0.0
 value = 15.955
 

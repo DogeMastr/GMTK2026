@@ -13,6 +13,7 @@ config_version=5
 config/name="GMTK2026"
 run/main_scene="uid://bxkwvkn7uf0sh"
 config/features=PackedStringArray("4.7", "Forward Plus")
+boot_splash/image="uid://dhvcuvq5kl2ti"
 config/icon="res://icon.svg"
 
 [autoload]

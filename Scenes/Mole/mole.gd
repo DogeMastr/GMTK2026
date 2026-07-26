@@ -40,6 +40,9 @@ func _process(delta: float) -> void:
 
 	pass
 	
+	if global_position.y < -32 and EventBus.mole_alive_status:
+		EventBus.mole_dies.emit()
+	
 	if currently_digging:
 		if EventBus.mole_alive_status:
 			$AnimatedSprite2D.play("dig")
