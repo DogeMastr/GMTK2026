@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bp7n4ccfsadk6" path="res://Scenes/Menus/Main Menu/main_menu.gd" id="1_xqj42"]
 [ext_resource type="Theme" uid="uid://debc8wh67ylqq" path="res://Assets/empty_theme.tres" id="2_j1dbm"]
 [ext_resource type="Texture2D" uid="uid://q5qrkf5nbwkd" path="res://Assets/Art/Menu Buttons Tile Based/play.png" id="4_jtovg"]
+[ext_resource type="FontFile" uid="uid://dqi4behuchs6a" path="res://Assets/Art/Fonts/image.fnt" id="6_qjtel"]
 [ext_resource type="Texture2D" uid="uid://b4r1buc26qhtb" path="res://Assets/Art/tilesheet.png" id="9_vd6dx"]
 [ext_resource type="Texture2D" uid="uid://b5dtcnix1dldq" path="res://Assets/Art/logo.png" id="10_kbojc"]
 
@@ -27,6 +28,14 @@ texture = ExtResource("4_jtovg")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hb3m6"]
 texture = ExtResource("4_jtovg")
 modulate_color = Color(0.7708395, 0.77083945, 0.77083945, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0k3y"]
+atlas = ExtResource("9_vd6dx")
+region = Rect2(96, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1e75"]
+atlas = ExtResource("9_vd6dx")
+region = Rect2(96, 192, 32, 32)
 
 [node name="MainMenu" type="Control" unique_id=1451464510]
 layout_mode = 3
@@ -75,5 +84,27 @@ offset_bottom = 253.0
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("10_kbojc")
 
+[node name="VolumeSlider" type="HSlider" parent="." unique_id=1993965068]
+layout_mode = 0
+offset_left = 444.0
+offset_top = 53.0
+offset_right = 725.0
+offset_bottom = 69.0
+theme_override_icons/grabber = SubResource("AtlasTexture_y0k3y")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_p1e75")
+max_value = 60.0
+step = 0.0
+value = 15.955
+
+[node name="Label" type="Label" parent="." unique_id=1363745995]
+layout_mode = 0
+offset_left = 443.0
+offset_top = 20.0
+offset_right = 539.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("6_qjtel")
+text = "VOLUME"
+
 [connection signal="mouse_entered" from="VBoxContainer/Play" to="." method="_on_play_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="value_changed" from="VolumeSlider" to="." method="_on_volume_slider_value_changed"]
