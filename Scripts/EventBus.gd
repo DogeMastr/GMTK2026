@@ -5,17 +5,18 @@ var tile_width = 64
 signal move_down(amount_to_move: int)
 signal mole_dies
 signal dig_out_row
-
-var score = 0
-var hand = []
-var current_row = []
-var mole_alive_status = true
+signal game_over
 
 signal add_card(data: int)
 
 signal spawn_nugget(x,y,data)
 
+var score = 0
 var difficulty = 0
+var hand = []
+var current_row = []
+var mole_alive_status = true
+
 
 func get_tile(x, y):
 	# this is the most inefficient search i could think of youre welcome :3

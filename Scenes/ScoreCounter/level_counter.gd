@@ -5,7 +5,7 @@ var current_level = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	EventBus.game_over.connect(hide)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,3 +20,6 @@ func _process(delta: float) -> void:
 			digit.target_digit = int(string_level[i])
 			i += 1
 	pass
+
+func _hide():
+	visible = false

@@ -1,6 +1,18 @@
 [gd_scene format=3 uid="uid://m3hq03ot84wt"]
 
 [ext_resource type="FontFile" uid="uid://dqi4behuchs6a" path="res://Assets/Art/Fonts/image.fnt" id="1_ms75n"]
+[ext_resource type="Script" uid="uid://dubrdy18bntgx" path="res://Scenes/Menus/Game Over/game_over.gd" id="1_q4p8s"]
+[ext_resource type="Texture2D" uid="uid://c5xktfhkgk5x1" path="res://Assets/Art/Menu Buttons Tile Based/retry.png" id="3_s3usl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m26mx"]
+texture = ExtResource("3_s3usl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wlbcb"]
+texture = ExtResource("3_s3usl")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j0od2"]
+texture = ExtResource("3_s3usl")
+modulate_color = Color(0.77254903, 0.77254903, 0.77254903, 1)
 
 [node name="GameOver" type="Control" unique_id=748321070]
 layout_mode = 3
@@ -9,32 +21,64 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_q4p8s")
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1113988820]
+[node name="Game_Over" type="RichTextLabel" parent="." unique_id=1962539485]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 184.0
+offset_top = -232.0
+offset_right = 184.0
+offset_bottom = -231.67499
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1608128465]
-layout_mode = 2
-alignment = 1
-
-[node name="Game_Over" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=1962539485]
-layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_ms75n")
+theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
 text = "GAME OVER
-YOUR HIGHSCORE IS
 "
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1433557399]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1608128465]
+layout_mode = 0
+offset_left = -166.0
+offset_top = -46.0
+offset_right = 602.0
+offset_bottom = 530.0
+alignment = 1
+
+[node name="YourScore" type="RichTextLabel" parent="VBoxContainer" unique_id=1864365683]
 layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_ms75n")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "YOUR SCORE WAS"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="VBoxContainer" unique_id=1275486380]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ms75n")
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=1433557399]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 328.0
+offset_right = 279.7097
+offset_bottom = 387.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "Restart"
+theme_override_styles/normal = SubResource("StyleBoxTexture_m26mx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wlbcb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_j0od2")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

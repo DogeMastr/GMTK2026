@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GMTK2026"
-run/main_scene="uid://b7wyjbk846wi3"
+run/main_scene="uid://bxkwvkn7uf0sh"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -27,6 +27,7 @@ window/size/viewport_width=768
 window/size/viewport_height=576
 window/size/resizable=false
 window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 
 [editor_plugins]
 

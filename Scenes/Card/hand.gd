@@ -5,6 +5,8 @@ const max_hand_size = 7.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	EventBus.add_card.connect(add_card)
+	EventBus.game_over.connect(hide)
+
 	pass # Replace with function body.
 
 func add_card(data):
@@ -35,3 +37,6 @@ func deal_hand():
 
 func remap_range(value: float, InputA: float, InputB: float, OutputA: float, OutputB: float):
 	return(value - InputA) / (InputB - InputA) * (OutputB - OutputA) + OutputA
+	
+func _hide():
+	visible = false

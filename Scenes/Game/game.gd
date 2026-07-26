@@ -30,8 +30,13 @@ func _ready() -> void:
 	pass # Replace with function body.
 	EventBus.dig_out_row.connect(digging_out_row)
 	EventBus.mole_dies.connect(stop_music)
+	EventBus.game_over.connect(hide_score)
 	
 	AudioManager.fade_music_in(game_music)
+	
+	EventBus.score = 0
+	EventBus.difficulty = 0
+	EventBus.mole_alive_status = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -105,3 +110,6 @@ func run_grid_scrolling(delta):
 
 func remap_range(value: float, InputA: float, InputB: float, OutputA: float, OutputB: float):
 	return(value - InputA) / (InputB - InputA) * (OutputB - OutputA) + OutputA
+
+func hide_score():
+	$ScoreBacking.hide()
