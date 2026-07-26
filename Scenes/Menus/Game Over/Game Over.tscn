@@ -45,9 +45,9 @@ vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1608128465]
 layout_mode = 0
-offset_left = -166.0
+offset_left = -160.0
 offset_top = -46.0
-offset_right = 602.0
+offset_right = 608.0
 offset_bottom = 530.0
 alignment = 1
 
@@ -70,12 +70,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="." unique_id=1433557399]
+custom_minimum_size = Vector2(96, 32)
 layout_mode = 0
-offset_left = 149.0
-offset_top = 322.0
-offset_right = 155.95
-offset_bottom = 325.55
-scale = Vector2(20, 20)
+offset_left = 128.0
+offset_top = 317.0
+offset_right = 224.0
+offset_bottom = 349.0
+scale = Vector2(2, 2)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/normal = SubResource("StyleBoxTexture_m26mx")
