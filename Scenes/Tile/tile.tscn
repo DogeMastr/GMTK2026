@@ -1,18 +1,13 @@
 [gd_scene format=3 uid="uid://b8sm7ip4tvxf4"]
 
 [ext_resource type="Script" uid="uid://bo2pl1aybkpa6" path="res://Scenes/Tile/tile.gd" id="1_b86n5"]
-[ext_resource type="Texture2D" uid="uid://babmdxmeekehw" path="res://Assets/Art/Card Pick Ups/CardTilePlus1.png" id="2_dh3lx"]
 [ext_resource type="AudioStream" uid="uid://cxdnd0igcoxxs" path="res://Assets/Sound/soundeffects/coin.wav" id="2_qp1u0"]
-[ext_resource type="Texture2D" uid="uid://bxx740qur0vgu" path="res://Assets/Art/Card Pick Ups/CardTilePlus2.png" id="3_cos8v"]
 [ext_resource type="Texture2D" uid="uid://b4r1buc26qhtb" path="res://Assets/Art/tilesheet.png" id="3_xgf1a"]
-[ext_resource type="Texture2D" uid="uid://dx8pmcf6qt4i5" path="res://Assets/Art/Card Pick Ups/CardTilePlus3.png" id="4_0gogo"]
 [ext_resource type="AudioStream" uid="uid://shysxl1lrwqu" path="res://Assets/Sound/soundeffects/grub3.wav" id="5_5nytv"]
-[ext_resource type="Texture2D" uid="uid://ccrb2ke43synr" path="res://Assets/Art/Card Pick Ups/CardTilePlus4.png" id="5_pq482"]
-[ext_resource type="Texture2D" uid="uid://dlqoeppayg1sb" path="res://Assets/Art/Card Pick Ups/CardTilePlus5.png" id="6_a8eru"]
 [ext_resource type="AudioStream" uid="uid://bvc3ikn26iupe" path="res://Assets/Sound/soundeffects/grub4.wav" id="6_kxku4"]
-[ext_resource type="Texture2D" uid="uid://dyo52jmagbdt0" path="res://Assets/Art/Card Pick Ups/CardTilePlus6.png" id="7_gjeiu"]
 [ext_resource type="AudioStream" uid="uid://c848qgj6kyida" path="res://Assets/Sound/soundeffects/grub5.wav" id="7_i021m"]
 [ext_resource type="AudioStream" uid="uid://bkgphwvx00wrh" path="res://Assets/Sound/soundeffects/cardget.wav" id="8_3duy8"]
+[ext_resource type="Texture2D" uid="uid://nrmfu5be34h2" path="res://Assets/Art/cardsindirt2.png" id="9_0gogo"]
 [ext_resource type="Texture2D" uid="uid://q6bf02lox75x" path="res://Assets/Art/sticks_and_rocks.png" id="9_cos8v"]
 [ext_resource type="AudioStream" uid="uid://drvohmlc75dtp" path="res://Assets/Sound/soundeffects/lavadeath.wav" id="9_qovhq"]
 
@@ -39,6 +34,30 @@ gravity = Vector3(0, 98, 0)
 scale_min = 0.099999994
 scale_max = 0.29999998
 scale_curve = SubResource("CurveTexture_nm3b7")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0kj3"]
+atlas = ExtResource("9_0gogo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prtq1"]
+atlas = ExtResource("9_0gogo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kca7j"]
+atlas = ExtResource("9_0gogo")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wma45"]
+atlas = ExtResource("9_0gogo")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t62gk"]
+atlas = ExtResource("9_0gogo")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdt7o"]
+atlas = ExtResource("9_0gogo")
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cos8v"]
 atlas = ExtResource("3_xgf1a")
@@ -120,22 +139,22 @@ region = Rect2(32, 32, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_dh3lx")
+"texture": SubResource("AtlasTexture_p0kj3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_cos8v")
+"texture": SubResource("AtlasTexture_prtq1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_0gogo")
+"texture": SubResource("AtlasTexture_kca7j")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_pq482")
+"texture": SubResource("AtlasTexture_wma45")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_a8eru")
+"texture": SubResource("AtlasTexture_t62gk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_gjeiu")
+"texture": SubResource("AtlasTexture_bdt7o")
 }],
 "loop": 1,
 "name": &"cards",
@@ -274,7 +293,7 @@ process_material = SubResource("ParticleProcessMaterial_qdslu")
 z_index = 2
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qdslu")
-animation = &"gold"
+animation = &"cards"
 
 [node name="Background" type="AnimatedSprite2D" parent="." unique_id=871939237]
 z_index = -1
