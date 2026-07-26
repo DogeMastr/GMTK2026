@@ -40,7 +40,7 @@ func _process(delta: float) -> void:
 	pass
 	
 	if currently_digging:
-		if not EventBus.mole_alive_status:
+		if EventBus.mole_alive_status:
 			$AnimatedSprite2D.play("dig")
 		position.y = lerp(position.y, target_y, 0.3)
 		
