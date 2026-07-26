@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://yfqomrg5omlm" path="res://Scenes/Mole/mole.gd" id="1_ow5gg"]
 [ext_resource type="Texture2D" uid="uid://c6txnlv4dddpf" path="res://Assets/Art/moleNew.png" id="2_ow5gg"]
-[ext_resource type="AudioStream" uid="uid://co3ork31kr5fr" path="res://Assets/Sound/soundeffects/deathmole.wav" id="2_qfxt8"]
+[ext_resource type="AudioStream" uid="uid://cs8aje3fwpifc" path="res://Assets/Sound/soundeffects/digdeath.wav" id="2_qfxt8"]
 [ext_resource type="AudioStream" uid="uid://cwhh32s1didd1" path="res://Assets/Sound/soundeffects/digging.wav" id="3_ba64u"]
 [ext_resource type="AudioStream" uid="uid://cm0f8wj8pk7fx" path="res://Assets/Sound/soundeffects/rock.wav" id="4_08duv"]
 

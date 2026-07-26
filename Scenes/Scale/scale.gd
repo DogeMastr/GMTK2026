@@ -7,6 +7,7 @@ var static_x
 func _ready() -> void:
 	static_y = position.y
 	static_x = position.x
+	EventBus.game_over.connect(hide)
 	pass # Replace with function body.
 
 
@@ -15,3 +16,6 @@ func _physics_process(delta: float) -> void:
 	position.y = static_y
 	position.x = static_x
 	pass
+
+func _hide():
+	visible = false
